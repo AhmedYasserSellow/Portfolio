@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "946187366202",
+    "project_id": "portfolio-db4ee",
+    "storage_bucket": "portfolio-db4ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946187366202:android:63aff686cff8a2ad68ea03",
+        "android_client_info": {
+          "package_name": "com.example.portfolio"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK5IE6fBAkxqQmYI_OCel0nD5pSjuiKDg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
