@@ -12,7 +12,7 @@ class ProjectsView extends StatelessWidget {
       children: [
         Text(
           'My Projects',
-          style: AppTextStyles.ktsBigHeader(context),
+          style: AppTextStyles.ktsBigHeader,
         ),
         Expanded(
           child: ListView.builder(

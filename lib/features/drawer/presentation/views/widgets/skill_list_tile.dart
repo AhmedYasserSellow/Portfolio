@@ -19,11 +19,11 @@ class SkillListTile extends StatelessWidget {
           ),
           title: Text(
             skillModel.title,
-            style: AppTextStyles.ktsHeader(context),
+            style: AppTextStyles.ktsHeader,
           ),
           trailing: Text(
             '${skillModel.value}' '%',
-            style: AppTextStyles.ktsNormal(context),
+            style: AppTextStyles.ktsNormal,
           ),
         ),
         Padding(

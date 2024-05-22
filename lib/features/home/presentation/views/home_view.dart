@@ -19,15 +19,15 @@ class HomeView extends StatelessWidget {
             children: [
               Text(
                 'My Personal Portfolio',
-                style: AppTextStyles.ktsBigHeader(context),
+                style: AppTextStyles.ktsBigHeader,
               ),
               Text(
                 'Flutter Developer',
-                style: AppTextStyles.ktsBigHeader(context),
+                style: AppTextStyles.ktsBigHeader,
               ),
               Text(
                 'I can help you creating excellent mobile apps, handingevery step from concept to deployment',
-                style: AppTextStyles.ktsNormal(context),
+                style: AppTextStyles.ktsNormal,
               ),
               const SizedBox(
                 height: 20,
