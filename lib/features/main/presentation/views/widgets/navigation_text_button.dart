@@ -21,7 +21,7 @@ class NavigationTextButton extends StatelessWidget {
           duration: const Duration(
             milliseconds: 500,
           ),
-          curve: Curves.bounceInOut,
+          curve: Curves.easeIn,
         );
       },
       child: Text(

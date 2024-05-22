@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/extensions/responsive_text.dart';
 
-abstract class PortfolioTextStyles {
-  // Text Styles start with [ktc]
-  static TextStyle ktsNormal(BuildContext context) => TextStyle(
-        color: Colors.grey,
-        fontSize: 12.toResponsiveFontSize(context),
-      );
-  static TextStyle ktsHeader(BuildContext context) => TextStyle(
+abstract class AppTextStyles {
+  // Text Styles start with [kts]
+  static TextStyle ktsNormal(BuildContext context) =>
+      const TextStyle(color: Colors.grey, fontSize: 12);
+  static TextStyle ktsHeader(BuildContext context) => const TextStyle(
         color: Colors.white,
-        fontSize: 12.toResponsiveFontSize(context),
+        fontSize: 12,
         fontWeight: FontWeight.bold,
+      );
+
+  static TextStyle ktsBigHeader(BuildContext context) => const TextStyle(
+        color: Colors.white,
+        fontSize: 36,
       );
 }

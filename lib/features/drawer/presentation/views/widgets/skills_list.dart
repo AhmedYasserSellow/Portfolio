@@ -49,7 +49,7 @@ class SkillsList extends StatelessWidget {
             ),
             Text(
               'Skills',
-              style: PortfolioTextStyles.ktsHeader(context),
+              style: AppTextStyles.ktsHeader(context),
             ),
           ],
         ),

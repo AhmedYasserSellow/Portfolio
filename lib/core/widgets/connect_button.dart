@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ConnectButton extends StatelessWidget {
   const ConnectButton({
@@ -6,16 +7,18 @@ class ConnectButton extends StatelessWidget {
     required this.color,
     required this.icon,
     required this.title,
-    required this.onTap,
+    required this.linkUrl,
   });
   final Color color;
   final IconData icon;
-  final String title;
-  final void Function()? onTap;
+  final String title, linkUrl;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap,
+      onTap: () async {
+        Uri url = Uri.parse(linkUrl);
+        await launchUrl(url);
+      },
       child: FittedBox(
         child: Container(
           padding: const EdgeInsets.symmetric(

@@ -22,7 +22,7 @@ class ProfileBox extends StatelessWidget {
         ),
         Text(
           'Ahmed Yasser',
-          style: PortfolioTextStyles.ktsHeader(context),
+          style: AppTextStyles.ktsHeader(context),
         ),
         const SizedBox(
           height: 4,
@@ -30,7 +30,7 @@ class ProfileBox extends StatelessWidget {
         Text(
           'Flutter Developer & Comminucation and Copmuter Engineer',
           textAlign: TextAlign.center,
-          style: PortfolioTextStyles.ktsNormal(context),
+          style: AppTextStyles.ktsNormal(context),
         ),
         const SizedBox(
           height: 16,
