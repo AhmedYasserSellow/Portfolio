@@ -1,32 +1,33 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/features/certifications/presentation/views/certifications_view.dart';
-import 'package:portfolio/features/home/presentation/views/home_view.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
-import 'package:portfolio/features/projects/presentation/views/projects_view.dart';
+import 'package:portfolio/features/drawer/presentation/views/drawer.dart';
+import 'package:portfolio/features/main/presentation/views/widgets/custom_navigation_bar.dart';
+import 'package:portfolio/features/main/presentation/views/widgets/pages_view.dart';
 
 class DesktopView extends StatelessWidget {
   const DesktopView({
     super.key,
+    required this.controller,
   });
-
+  final PageController controller;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: Row(
         children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 8),
-            child: PageView(
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              controller: context.read<MainCubit>().controller,
-              children: const [
-                HomeView(),
-                ProjectsView(),
-                CertificationView(),
-                // Achievements(),
-              ],
+          const Expanded(
+            child: CustomDrawer(),
+          ),
+          Expanded(
+            flex: 3,
+            child: Scaffold(
+              appBar: PreferredSize(
+                  preferredSize: Size.copy(AppBar().preferredSize),
+                  child: Center(
+                    child: CustomNavigationBar(
+                      controller: controller,
+                    ),
+                  )),
+              body: const PagesView(),
             ),
           ),
         ],

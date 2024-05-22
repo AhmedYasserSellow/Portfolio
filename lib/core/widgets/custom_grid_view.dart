@@ -26,8 +26,8 @@ class CustomGridView extends StatelessWidget {
                   : ResponsiveDeisgner.isTablet(context)
                       ? 1.5 // Tablet Aspect Ratio
                       : ResponsiveDeisgner.isDesktop(context)
-                          ? 1.3 // Dekstop Aspect Ratio
-                          : 1.5, // Large Desktop Aspect Ratio
+                          ? 1.1 // Dekstop Aspect Ratio
+                          : 1.2, // Large Desktop Aspect Ratio
 
           crossAxisCount: ResponsiveDeisgner.isMobile(context)
               ? 1

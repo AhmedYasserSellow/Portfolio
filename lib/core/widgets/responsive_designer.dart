@@ -37,28 +37,30 @@ class ResponsiveDeisgner extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final double width = MediaQuery.sizeOf(context).width;
-    if (width < BreakPoints.largeMobile) {
-      return mobile(context);
-    } else if (width < BreakPoints.tablet) {
-      if (largeMobile != null) {
-        return largeMobile!(context);
-      } else {
-        return mobile(context);
-      }
-    } else if (width < BreakPoints.desktop) {
-      return tablet(context);
-    } else {
-      if (width < BreakPoints.largeDesktop) {
-        return desktop(context);
-      } else {
-        if (largeDesktop != null) {
-          return largeDesktop!(context);
-        } else {
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final double width = MediaQuery.sizeOf(context).width;
+        if (width < BreakPoints.largeMobile) {
+          return mobile(context);
+        } else if (width < BreakPoints.tablet) {
+          if (largeMobile != null) {
+            return largeMobile!(context);
+          } else {
+            return mobile(context);
+          }
+        } else if (width < BreakPoints.desktop) {
+          return tablet(context);
+        } else if (width <= BreakPoints.largeDesktop) {
           return desktop(context);
+        } else {
+          if (largeDesktop != null) {
+            return largeDesktop!(context);
+          } else {
+            return desktop(context);
+          }
         }
-      }
-    }
+      },
+    );
   }
 }
 

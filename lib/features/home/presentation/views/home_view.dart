@@ -8,19 +8,43 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveDeisgner(
-      desktop: (context) => const SizedBox(),
-      mobile: (context) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Image.asset(
-            Assets.imagesCv,
-            width: 300,
+    return Center(
+      child: SingleChildScrollView(
+        child: ResponsiveDeisgner(
+          desktop: (context) => FittedBox(
+            child: Row(
+              children: [
+                const PortfolioDetials(),
+                Image.asset(
+                  Assets.imagesCv,
+                  width: 300,
+                ),
+              ],
+            ),
           ),
-          const PortfolioDetials()
-        ],
+          mobile: (context) => Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                Assets.imagesCv,
+                width: 300,
+              ),
+              const PortfolioDetials()
+            ],
+          ),
+          tablet: (context) => FittedBox(
+            child: Row(
+              children: [
+                const PortfolioDetials(),
+                Image.asset(
+                  Assets.imagesCv,
+                  width: 300,
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
-      tablet: (context) => const SizedBox(),
     );
   }
 }
