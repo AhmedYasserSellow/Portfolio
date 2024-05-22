@@ -13,6 +13,12 @@ class SocialMedia extends StatelessWidget {
       children: [
         SocialMediaButton(
           socialMediaModel: SocialMediaModel(
+            imagePath: Assets.imagesWhatsapp,
+            linkURL: 'https://wa.me/+201028825215',
+          ),
+        ),
+        SocialMediaButton(
+          socialMediaModel: SocialMediaModel(
             imagePath: Assets.imagesLinkedin,
             linkURL: 'https://www.linkedin.com/in/ahmedyasser2002/w',
           ),

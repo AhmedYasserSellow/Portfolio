@@ -4,8 +4,8 @@ import 'package:portfolio/features/drawer/presentation/views/widgets/profile_box
 import 'package:portfolio/features/drawer/presentation/views/widgets/skills_list.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/social_media.dart';
 
-class PortfolioDrawer extends StatelessWidget {
-  const PortfolioDrawer({super.key});
+class CustomDrawer extends StatelessWidget {
+  const CustomDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {

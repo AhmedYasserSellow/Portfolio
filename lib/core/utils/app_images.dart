@@ -21,10 +21,6 @@ class Assets {
   /// assets/images/flutter.png
   static const String imagesFlutter = "assets/images/flutter.png";
 
-  /// Assets for imagesFlutterLogo
-  /// assets/images/flutter_logo.png
-  static const String imagesFlutterLogo = "assets/images/flutter_logo.png";
-
   /// Assets for imagesGithub
   /// assets/images/github.png
   static const String imagesGithub = "assets/images/github.png";
@@ -40,5 +36,9 @@ class Assets {
   /// Assets for imagesResponsive
   /// assets/images/responsive.png
   static const String imagesResponsive = "assets/images/responsive.png";
+
+  /// Assets for imagesWhatsapp
+  /// assets/images/whatsapp.png
+  static const String imagesWhatsapp = "assets/images/whatsapp.png";
 }
 
