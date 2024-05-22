@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
+import 'package:portfolio/core/widgets/custom_grid_view.dart';
 import 'package:portfolio/features/certifications/data/models/certificate_model.dart';
 import 'package:portfolio/features/certifications/presentation/views/widgets/certification_item.dart';
 
@@ -16,12 +17,8 @@ class CertificationView extends StatelessWidget {
           style: AppTextStyles.ktsBigHeader,
         ),
         Expanded(
-          child: GridView.builder(
-            itemCount: 6,
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 4,
-              childAspectRatio: 2,
-            ),
+          child: CustomGridView(
+            itemCount: 16,
             itemBuilder: (context, index) {
               return const CertificationItem(
                 certificateModel: CertificateModel(
@@ -34,7 +31,10 @@ class CertificationView extends StatelessWidget {
               );
             },
           ),
-        )
+        ),
+        const SizedBox(
+          height: 16,
+        ),
       ],
     );
   }

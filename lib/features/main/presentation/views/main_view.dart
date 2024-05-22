@@ -18,16 +18,19 @@ class MainView extends StatelessWidget {
           appBar: CustomAppBar(
             controller: context.read<MainCubit>().controller,
           ),
-          body: PageView(
-            physics: const NeverScrollableScrollPhysics(),
-            scrollDirection: Axis.vertical,
-            controller: context.read<MainCubit>().controller,
-            children: const [
-              HomeView(),
-              ProjectsView(),
-              CertificationView(),
-              // Achievements(),
-            ],
+          body: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: PageView(
+              physics: const NeverScrollableScrollPhysics(),
+              scrollDirection: Axis.vertical,
+              controller: context.read<MainCubit>().controller,
+              children: const [
+                HomeView(),
+                ProjectsView(),
+                CertificationView(),
+                // Achievements(),
+              ],
+            ),
           ),
         );
       },

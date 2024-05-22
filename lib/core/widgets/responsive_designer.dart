@@ -13,6 +13,10 @@ class ResponsiveDeisgner extends StatelessWidget {
   final WidgetBuilder desktop;
 
   static bool isMobile(BuildContext context) {
+    return MediaQuery.sizeOf(context).width < BreakPoints.largeMobile;
+  }
+
+  static bool isLargeMobile(BuildContext context) {
     return MediaQuery.sizeOf(context).width < BreakPoints.tablet;
   }
 
@@ -21,7 +25,11 @@ class ResponsiveDeisgner extends StatelessWidget {
   }
 
   static bool isDesktop(BuildContext context) {
-    return MediaQuery.sizeOf(context).width >= BreakPoints.desktop;
+    return MediaQuery.sizeOf(context).width < BreakPoints.largeDesktop;
+  }
+
+  static bool isLatgeDesktop(BuildContext context) {
+    return MediaQuery.sizeOf(context).width >= BreakPoints.largeDesktop;
   }
 
   @override
@@ -38,6 +46,8 @@ class ResponsiveDeisgner extends StatelessWidget {
 }
 
 abstract class BreakPoints {
+  static int largeMobile = 512;
   static int tablet = 768;
   static int desktop = 1024;
+  static int largeDesktop = 1408;
 }
