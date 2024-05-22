@@ -3,16 +3,27 @@ import 'package:flutter/material.dart';
 class NavigationTextButton extends StatelessWidget {
   const NavigationTextButton({
     super.key,
-    required this.onTap,
     required this.text,
+    required this.controller,
+    required this.index,
   });
-  final void Function()? onTap;
+
   final String text;
+  final PageController controller;
+  final int index;
 
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: onTap,
+      onPressed: () {
+        controller.animateToPage(
+          index,
+          duration: const Duration(
+            milliseconds: 500,
+          ),
+          curve: Curves.bounceInOut,
+        );
+      },
       child: Text(
         text,
         style: const TextStyle(

@@ -8,8 +8,15 @@ import 'package:url_launcher/url_launcher.dart';
 class PortfolioAppBar extends StatelessWidget implements PreferredSizeWidget {
   const PortfolioAppBar({
     super.key,
+    required this.controller,
   });
-
+  final PageController controller;
+  static const List<String> navigstionList = [
+    'Home',
+    'Projects',
+    'Certifications',
+    'Achievements',
+  ];
   @override
   Widget build(BuildContext context) {
     return AppBar(
@@ -18,12 +25,13 @@ class PortfolioAppBar extends StatelessWidget implements PreferredSizeWidget {
       leading: const Icon(FontAwesomeIcons.f),
       title: Row(
         mainAxisSize: MainAxisSize.min,
-        children: [
-          NavigationTextButton(onTap: () {}, text: 'Home'),
-          NavigationTextButton(onTap: () {}, text: 'Projects'),
-          NavigationTextButton(onTap: () {}, text: 'Certifications'),
-          NavigationTextButton(onTap: () {}, text: 'Achievements'),
-        ],
+        children: List.generate(
+          navigstionList.length,
+          (index) => NavigationTextButton(
+              text: navigstionList[index],
+              controller: controller,
+              index: index),
+        ),
       ),
       actions: [
         ConnectButton(

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/core/layouts/main_layout.dart';
-import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/views/main_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => MainCubit(),
       child: MaterialApp(
         theme: ThemeData(
           fontFamily: 'Cairo',
