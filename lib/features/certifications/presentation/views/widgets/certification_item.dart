@@ -22,6 +22,8 @@ class CertificationItem extends StatelessWidget {
             Text(
               certificateModel.name,
               style: AppTextStyles.ktsHeader,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
             const Expanded(
               child: SizedBox(
@@ -67,7 +69,7 @@ class CertificationItem extends StatelessWidget {
               color: Colors.purple,
               icon: FontAwesomeIcons.link,
               title: 'Certificate',
-              linkUrl: certificateModel.lnik,
+              linkUrl: certificateModel.link,
             ),
           ],
         ),

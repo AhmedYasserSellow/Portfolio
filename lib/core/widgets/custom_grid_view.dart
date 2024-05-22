@@ -22,7 +22,7 @@ class CustomGridView extends StatelessWidget {
           childAspectRatio: ResponsiveDeisgner.isMobile(context)
               ? 1.8 // Mobile Aspect Ratio
               : ResponsiveDeisgner.isLargeMobile(context)
-                  ? 1.6 // Large Mobile Aspect Ratio
+                  ? 1.55 // Large Mobile Aspect Ratio
                   : ResponsiveDeisgner.isTablet(context)
                       ? 1.5 // Tablet Aspect Ratio
                       : ResponsiveDeisgner.isDesktop(context)

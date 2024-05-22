@@ -1,9 +1,9 @@
 class CertificateModel {
-  final String name, source, date, skills, lnik;
+  final String name, source, date, skills, link;
 
   const CertificateModel({
     required this.date,
-    required this.lnik,
+    required this.link,
     required this.name,
     required this.skills,
     required this.source,

@@ -23,7 +23,7 @@ class CertificationView extends StatelessWidget {
               return const CertificationItem(
                 certificateModel: CertificateModel(
                   date: 'JUL 2023',
-                  lnik: '',
+                  link: '',
                   name: 'Course',
                   skills: 'Flutter',
                   source: 'Udemy',
