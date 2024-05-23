@@ -14,7 +14,7 @@ class ProjectItem extends StatelessWidget {
   final ProjectModel projectModel;
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         ImageViewer(
           context,
