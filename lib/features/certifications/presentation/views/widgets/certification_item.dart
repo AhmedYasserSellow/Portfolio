@@ -57,6 +57,8 @@ class CertificationItem extends StatelessWidget {
                 Text(
                   certificateModel.skills,
                   style: AppTextStyles.ktsNormal,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
                 ),
               ],
             ),
