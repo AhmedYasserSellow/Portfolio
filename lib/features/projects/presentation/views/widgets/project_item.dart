@@ -14,14 +14,15 @@ class ProjectItem extends StatelessWidget {
   final ProjectModel projectModel;
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      onTap: () {
-        ImageViewer(
-          context,
-          projectModel.photoLink,
-        );
-      },
-      child: Card(
+    return Card(
+      child: InkWell(
+        borderRadius: BorderRadius.circular(12),
+        onTap: () {
+          ImageViewer(
+            context,
+            projectModel.photoLink,
+          );
+        },
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(

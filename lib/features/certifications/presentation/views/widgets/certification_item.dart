@@ -48,19 +48,18 @@ class CertificationItem extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            Row(
-              children: [
-                Text(
-                  'Skills: ',
+            RichText(
+              text: TextSpan(
+                  text: 'Skills: ',
                   style: AppTextStyles.ktsHeader,
-                ),
-                Text(
-                  certificateModel.skills,
-                  style: AppTextStyles.ktsNormal,
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis,
-                ),
-              ],
+                  children: [
+                    TextSpan(
+                      text: certificateModel.skills,
+                      style: AppTextStyles.ktsNormal,
+                    ),
+                  ]),
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
             const Expanded(
               child: SizedBox(
