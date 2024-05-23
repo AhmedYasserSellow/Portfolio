@@ -2,11 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:portfolio/core/utils/consts.dart';
 
 class ProjectModel {
-  final String name, description, link;
-  final String? photoLink;
+  final String name, description, link, photoLink;
 
   const ProjectModel({
-    this.photoLink,
+    required this.photoLink,
     required this.description,
     required this.link,
     required this.name,

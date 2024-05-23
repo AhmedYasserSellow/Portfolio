@@ -16,7 +16,7 @@ class ProjectItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        launchUrl(Uri.parse(projectModel.link));
+        launchUrl(Uri.parse(projectModel.photoLink));
       },
       child: Card(
         child: Padding(
@@ -55,10 +55,10 @@ class ProjectItem extends StatelessWidget {
                       color: Colors.white,
                     ),
                   ),
-                  const SocialMediaButton(
+                  SocialMediaButton(
                     socialMediaModel: SocialMediaModel(
                       imagePath: Assets.imagesGithub,
-                      linkURL: '',
+                      linkURL: projectModel.link,
                     ),
                   )
                 ],
