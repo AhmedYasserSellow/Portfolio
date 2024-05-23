@@ -4,7 +4,7 @@ import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/drawer/data/models/social_media_model.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/social_media_button.dart';
 import 'package:portfolio/features/projects/data/models/project_model.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:portfolio/features/projects/presentation/views/widgets/Image_viewer.dart';
 
 class ProjectItem extends StatelessWidget {
   const ProjectItem({
@@ -16,7 +16,10 @@ class ProjectItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        launchUrl(Uri.parse(projectModel.photoLink));
+        ImageViewer(
+          context,
+          projectModel.photoLink,
+        );
       },
       child: Card(
         child: Padding(
