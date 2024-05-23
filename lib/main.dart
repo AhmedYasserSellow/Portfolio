@@ -1,13 +1,19 @@
 import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
-import 'package:portfolio/features/main/presentation/views/main_view.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:portfolio/features/splash/presentation/views/splash_view.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(
     DevicePreview(
-      enabled: false,
+      enabled: kDebugMode,
       builder: (context) => const MyApp(),
     ),
   );
@@ -29,7 +35,7 @@ class MyApp extends StatelessWidget {
         ),
         debugShowCheckedModeBanner: false,
         title: 'Portfolio',
-        home: const MainView(),
+        home: const SplashView(),
       ),
     );
   }

@@ -28,8 +28,11 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  cached_network_image: ^3.3.1
+  cloud_firestore: ^4.17.4
   cupertino_icons: ^1.0.6
   device_preview: ^1.1.0
+  firebase_core: ^2.31.1
   flutter:
     sdk: flutter
   flutter_bloc: ^8.1.5
@@ -77,8 +80,3 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
-flutter_assets:
-  assets_path: assets/images/
-  output_path: lib/core/utils/
-  filename: app_images.dart
-  field_prefix: null

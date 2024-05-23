@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/core/widgets/custom_grid_view.dart';
-import 'package:portfolio/features/projects/data/models/project_model.dart';
+import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
 import 'package:portfolio/features/projects/presentation/views/widgets/project_item.dart';
 
 class ProjectsView extends StatelessWidget {
@@ -16,17 +17,16 @@ class ProjectsView extends StatelessWidget {
           'My Projects',
           style: AppTextStyles.ktsBigHeader,
         ),
+        const SizedBox(
+          height: 8,
+        ),
         Expanded(
           child: CustomGridView(
-            itemCount: 16,
+            itemCount: context.read<MainCubit>().projectModelsList.length,
             itemBuilder: (context, index) {
-              return const ProjectItem(
-                projectModel: ProjectModel(
-                  description:
-                      'sfdggfhgfhghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsfdggfhgfhghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsfdggfhgfhghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsfdggfhgfhghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsfdggfhgfhghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhsfdggfhgfhghhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh',
-                  link: '',
-                  name: 'Padel Club Booking Service',
-                ),
+              return ProjectItem(
+                projectModel:
+                    context.read<MainCubit>().projectModelsList[index],
               );
             },
           ),

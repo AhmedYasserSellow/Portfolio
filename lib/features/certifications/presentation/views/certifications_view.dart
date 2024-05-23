@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/core/widgets/custom_grid_view.dart';
-import 'package:portfolio/features/certifications/data/models/certificate_model.dart';
 import 'package:portfolio/features/certifications/presentation/views/widgets/certification_item.dart';
+import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
 
 class CertificationView extends StatelessWidget {
   const CertificationView({super.key});
@@ -16,18 +17,16 @@ class CertificationView extends StatelessWidget {
           'Certifications',
           style: AppTextStyles.ktsBigHeader,
         ),
+        const SizedBox(
+          height: 8,
+        ),
         Expanded(
           child: CustomGridView(
-            itemCount: 16,
+            itemCount: context.read<MainCubit>().certificationsModelList.length,
             itemBuilder: (context, index) {
-              return const CertificationItem(
-                certificateModel: CertificateModel(
-                  date: 'JUL 2023',
-                  link: '',
-                  name: 'Course',
-                  skills: 'Flutter',
-                  source: 'Udemy',
-                ),
+              return CertificationItem(
+                certificateModel:
+                    context.read<MainCubit>().certificationsModelList[index],
               );
             },
           ),

@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
+import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
 
 class ProfileBox extends StatelessWidget {
   const ProfileBox({
@@ -13,9 +16,11 @@ class ProfileBox extends StatelessWidget {
         const SizedBox(
           height: 20,
         ),
-        const CircleAvatar(
+        CircleAvatar(
           radius: 50,
-          backgroundImage: AssetImage('assets/images/my_image.jpg'),
+          backgroundImage: CachedNetworkImageProvider(
+            context.read<MainCubit>().personalData.photo,
+          ),
         ),
         const SizedBox(
           height: 16,

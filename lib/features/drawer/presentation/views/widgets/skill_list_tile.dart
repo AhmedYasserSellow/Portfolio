@@ -14,7 +14,7 @@ class SkillListTile extends StatelessWidget {
       children: [
         ListTile(
           leading: Image.asset(
-            skillModel.imagePath,
+            'assets/images/' '${skillModel.imagePath}' '.png',
             height: 16,
           ),
           title: Text(
