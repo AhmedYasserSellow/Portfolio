@@ -17,13 +17,26 @@ class MainCubit extends Cubit<MainState> {
   late List<ProjectModel> projectModelsList;
   late List<CertificateModel> certificationsModelList;
   late List<SkillModel> skillsModelList;
+  int pageIndex = 0;
+
+  void changePageIndex(int index) {
+    emit(ChangePageIndex());
+    controller.animateToPage(
+      index,
+      duration: const Duration(
+        milliseconds: 500,
+      ),
+      curve: Curves.easeIn,
+    );
+    pageIndex = index;
+  }
 
   Future loadData() async {
     final firestore = FirebaseFirestore.instance;
     getPersonalData(firestore);
     getProjects(firestore);
     getCertifications(firestore);
-    getSkill(firestore);
+    getSkills(firestore);
   }
 
   Future getPersonalData(FirebaseFirestore firestore) async {
@@ -59,7 +72,7 @@ class MainCubit extends Cubit<MainState> {
     });
   }
 
-  Future getSkill(FirebaseFirestore firestore) async {
+  Future getSkills(FirebaseFirestore firestore) async {
     await firestore
         .collection(FirestoreKeys.cData)
         .doc(FirestoreKeys.dVariableData)

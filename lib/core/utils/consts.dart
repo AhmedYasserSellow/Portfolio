@@ -14,6 +14,9 @@ abstract class FirestoreKeys {
   static const String fEmail = 'email';
   static const String fGitHub = 'github';
   static const String fLinkedIn = 'linkedin';
+  static const String fFacebook = 'facebook';
+  static const String fTwitter = 'twitter';
+  static const String fInstagram = 'instagram';
   static const String fPhone = 'phone';
   static const String fPhoto = 'photo';
   static const String fCV = 'cv';

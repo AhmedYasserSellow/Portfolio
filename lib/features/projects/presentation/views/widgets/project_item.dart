@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/drawer/data/models/social_media_model.dart';
-import 'package:portfolio/features/drawer/presentation/views/widgets/social_media_button.dart';
+import 'package:portfolio/core/widgets/social_media_button.dart';
 import 'package:portfolio/features/projects/data/models/project_model.dart';
 import 'package:portfolio/features/projects/presentation/views/widgets/Image_viewer.dart';
 
@@ -30,7 +30,7 @@ class ProjectItem extends StatelessWidget {
             children: [
               Text(
                 projectModel.name,
-                style: AppTextStyles.ktsHeader,
+                style: AppTextStyles.ktsHeader.copyWith(fontSize: 24),
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -41,7 +41,7 @@ class ProjectItem extends StatelessWidget {
               ),
               Text(
                 projectModel.description,
-                style: AppTextStyles.ktsNormal,
+                style: AppTextStyles.ktsNormal.copyWith(fontSize: 16),
                 maxLines: 3,
                 overflow: TextOverflow.ellipsis,
               ),
@@ -57,9 +57,11 @@ class ProjectItem extends StatelessWidget {
                     'Check on github',
                     style: AppTextStyles.ktsNormal.copyWith(
                       color: Colors.white,
+                      fontSize: 20,
                     ),
                   ),
                   SocialMediaButton(
+                    iconSize: 24,
                     socialMediaModel: SocialMediaModel(
                       imagePath: Assets.imagesGithub,
                       linkURL: projectModel.link,

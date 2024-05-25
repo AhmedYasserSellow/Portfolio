@@ -10,31 +10,37 @@ class SkillListTile extends StatelessWidget {
   final SkillModel skillModel;
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        ListTile(
-          leading: Image.asset(
-            'assets/images/' '${skillModel.imagePath}' '.png',
-            height: 16,
-          ),
-          title: Text(
-            skillModel.title,
-            style: AppTextStyles.ktsHeader,
-          ),
-          trailing: Text(
-            '${skillModel.value}' '%',
-            style: AppTextStyles.ktsNormal,
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: LinearProgressIndicator(
-            borderRadius: BorderRadius.circular(16),
-            value: skillModel.value / 100,
-            color: Colors.blue,
-          ),
-        ),
-      ],
+    return TweenAnimationBuilder(
+      tween: Tween(begin: 0, end: skillModel.value),
+      duration: const Duration(seconds: 1),
+      builder: (context, value, child) {
+        return Column(
+          children: [
+            ListTile(
+              leading: Image.asset(
+                'assets/images/' '${skillModel.imagePath}' '.png',
+                height: 16,
+              ),
+              title: Text(
+                skillModel.title,
+                style: AppTextStyles.ktsHeader,
+              ),
+              trailing: Text(
+                '${value.round()}' '%',
+                style: AppTextStyles.ktsNormal,
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: LinearProgressIndicator(
+                borderRadius: BorderRadius.circular(16),
+                value: value.toDouble() / 100,
+                color: Colors.blue,
+              ),
+            ),
+          ],
+        );
+      },
     );
   }
 }

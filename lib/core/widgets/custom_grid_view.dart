@@ -21,23 +21,16 @@ class CustomGridView extends StatelessWidget {
           mainAxisSpacing: 8,
           childAspectRatio: ResponsiveDeisgner.isMobile(context)
               ? 1.8 // Mobile Aspect Ratio
-              : ResponsiveDeisgner.isLargeMobile(context)
-                  ? 1.55 // Large Mobile Aspect Ratio
-                  : ResponsiveDeisgner.isTablet(context)
-                      ? 1.5 // Tablet Aspect Ratio
-                      : ResponsiveDeisgner.isDesktop(context)
-                          ? 1.1 // Dekstop Aspect Ratio
-                          : 1.2, // Large Desktop Aspect Ratio
+              : ResponsiveDeisgner.isTablet(context)
+                  ? 1.5 // Tablet Aspect Ratio
+                  : 1.1, // Large Desktop Aspect Ratio
 
-          crossAxisCount: ResponsiveDeisgner.isMobile(context)
+          crossAxisCount: ResponsiveDeisgner.isMobile(context) ||
+                  ResponsiveDeisgner.isLargeMobile(context)
               ? 1
-              : ResponsiveDeisgner.isLargeMobile(context)
+              : ResponsiveDeisgner.isTablet(context)
                   ? 2
-                  : ResponsiveDeisgner.isTablet(context)
-                      ? 3
-                      : ResponsiveDeisgner.isDesktop(context)
-                          ? 4
-                          : 5,
+                  : 3,
         ),
         itemBuilder: itemBuilder,
       ),

@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/extensions/seperator.dart';
+import 'package:portfolio/core/widgets/gradient_background_scaffold.dart';
 import 'package:portfolio/features/drawer/presentation/views/drawer.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/custom_navigation_bar.dart';
+import 'package:portfolio/features/main/presentation/views/widgets/drawer_opener.dart';
+import 'package:portfolio/features/main/presentation/views/widgets/follow_me.dart';
+import 'package:portfolio/features/main/presentation/views/widgets/vertical_nav_bar.dart';
 import 'package:portfolio/features/main/presentation/views/widgets/pages_view.dart';
 
 class DesktopView extends StatelessWidget {
@@ -11,26 +15,28 @@ class DesktopView extends StatelessWidget {
   final PageController controller;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: [
-          const Expanded(
-            child: CustomDrawer(),
-          ),
-          Expanded(
-            flex: 3,
-            child: Scaffold(
-              appBar: PreferredSize(
-                  preferredSize: Size.copy(AppBar().preferredSize),
-                  child: Center(
-                    child: CustomNavigationBar(
-                      controller: controller,
-                    ),
-                  )),
-              body: const PagesView(),
+    return GradientBackgroundScaffold(
+      drawer: const CustomDrawer(),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+        ),
+        child: Row(
+          children: [
+            const DrawerOpener(),
+            const FollowMe(),
+            const Expanded(
+              child: PagesView(),
             ),
-          ),
-        ],
+            const VerticalNavigationBar(),
+          ]
+              .seperator(
+                const SizedBox(
+                  width: 8,
+                ),
+              )
+              .toList(),
+        ),
       ),
     );
   }

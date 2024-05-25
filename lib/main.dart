@@ -1,5 +1,3 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
@@ -12,10 +10,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    DevicePreview(
-      enabled: kDebugMode,
-      builder: (context) => const MyApp(),
-    ),
+    // DevicePreview(
+    //   enabled: kDebugMode,
+    //   builder: (context) => const MyApp(),
+    // ),
+    const MyApp(),
   );
 }
 
@@ -27,8 +26,8 @@ class MyApp extends StatelessWidget {
     return BlocProvider(
       create: (context) => MainCubit(),
       child: MaterialApp(
-        locale: DevicePreview.locale(context),
-        builder: DevicePreview.appBuilder,
+        // locale: DevicePreview.locale(context),
+        // builder: DevicePreview.appBuilder,
         theme: ThemeData(
           fontFamily: 'Cairo',
           brightness: Brightness.dark,

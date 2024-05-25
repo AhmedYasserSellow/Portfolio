@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/models/personal_data_model.dart';
 import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/features/drawer/data/models/social_media_model.dart';
-import 'package:portfolio/features/drawer/presentation/views/widgets/social_media_button.dart';
+import 'package:portfolio/core/widgets/social_media_button.dart';
 import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
 
 class SocialMedia extends StatelessWidget {

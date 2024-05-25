@@ -12,6 +12,6 @@ abstract class AppTextStyles {
 
   static TextStyle ktsBigHeader = const TextStyle(
     color: Colors.white,
-    fontSize: 36,
+    fontSize: 42,
   );
 }

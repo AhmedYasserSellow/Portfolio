@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/core/widgets/responsive_designer.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/cv.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/portfolio_details.dart';
 
 class HomeView extends StatelessWidget {
@@ -11,35 +11,28 @@ class HomeView extends StatelessWidget {
     return Center(
       child: SingleChildScrollView(
         child: ResponsiveDeisgner(
-          desktop: (context) => FittedBox(
-            child: Row(
-              children: [
-                const PortfolioDetials(),
-                Image.asset(
-                  Assets.imagesCv,
-                  width: 300,
-                ),
-              ],
-            ),
-          ),
-          mobile: (context) => Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          desktop: (context) => const Row(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              Image.asset(
-                Assets.imagesCv,
-                width: 300,
+              PortfolioDetials(),
+              SizedBox(
+                width: 16,
               ),
-              const PortfolioDetials()
+              CV(),
             ],
           ),
-          tablet: (context) => FittedBox(
+          mobile: (context) => const Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CV(),
+              PortfolioDetials(),
+            ],
+          ),
+          tablet: (context) => const FittedBox(
             child: Row(
               children: [
-                const PortfolioDetials(),
-                Image.asset(
-                  Assets.imagesCv,
-                  width: 300,
-                ),
+                PortfolioDetials(),
+                CV(),
               ],
             ),
           ),
