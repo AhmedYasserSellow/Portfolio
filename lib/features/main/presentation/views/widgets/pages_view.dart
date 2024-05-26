@@ -14,33 +14,24 @@ class PagesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        const SizedBox(
-          height: 16,
-        ),
-        Expanded(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: PageView(
-              physics: const NeverScrollableScrollPhysics(),
-              scrollDirection: Axis.vertical,
-              controller: context.read<MainCubit>().controller,
-              children: const [
-                HomeView(),
-                ProjectsView(),
-                CertificationView(),
-                AchievementsView(),
-                ContactView(),
-              ],
-            ),
+    return Center(
+      child: Expanded(
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: PageView(
+            physics: const NeverScrollableScrollPhysics(),
+            scrollDirection: Axis.vertical,
+            controller: context.read<MainCubit>().controller,
+            children: const [
+              HomeView(),
+              ProjectsView(),
+              CertificationView(),
+              AchievementsView(),
+              ContactView(),
+            ],
           ),
         ),
-        const SizedBox(
-          height: 16,
-        ),
-      ],
+      ),
     );
   }
 }

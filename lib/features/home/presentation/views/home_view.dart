@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/widgets/responsive_designer.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/animated_dart_window.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/cv.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/portfolio_details.dart';
 
@@ -18,7 +19,7 @@ class HomeView extends StatelessWidget {
               SizedBox(
                 width: 16,
               ),
-              CV(),
+              StackedDartWindow(),
             ],
           ),
           mobile: (context) => const Column(
