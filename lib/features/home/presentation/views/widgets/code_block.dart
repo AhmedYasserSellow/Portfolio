@@ -1,26 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:type_text/type_rich_text.dart';
 
-Widget addStack(Widget child, double width, double height) {
-  return Stack(
-    children: [
-      Container(
-        padding: const EdgeInsets.all(16),
-        width: width,
-        height: height,
-        decoration: BoxDecoration(
-          color: Colors.grey,
-          borderRadius: BorderRadius.circular(16),
-        ),
-      ),
-      Padding(
-        padding: const EdgeInsets.only(top: 20, left: 15),
-        child: child,
-      ),
-    ],
-  );
-}
-
 class CodeBlock extends StatelessWidget {
   const CodeBlock({
     super.key,

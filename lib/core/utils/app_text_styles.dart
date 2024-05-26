@@ -9,9 +9,14 @@ abstract class AppTextStyles {
     fontSize: 12,
     fontWeight: FontWeight.bold,
   );
-
+  static TextStyle ktsMediumHeader = TextStyle(
+    color: Colors.white.withOpacity(0.8),
+    fontSize: 24,
+    fontWeight: FontWeight.bold,
+  );
   static TextStyle ktsBigHeader = const TextStyle(
     color: Colors.white,
     fontSize: 42,
+    fontWeight: FontWeight.bold,
   );
 }

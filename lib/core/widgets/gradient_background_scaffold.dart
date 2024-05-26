@@ -16,10 +16,12 @@ class GradientBackgroundScaffold extends StatelessWidget {
     return Container(
       decoration: const BoxDecoration(
           gradient: LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
         colors: [
-          AppColors.galaxyColor1,
-          AppColors.galaxyColor2,
-          AppColors.galaxyColor3,
+          AppColors.kcGalaxyColor1,
+          AppColors.kcGalaxyColor2,
+          AppColors.kcGalaxyColor3,
         ],
       )),
       child: Scaffold(

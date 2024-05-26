@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/extensions/add_stack.dart';
 import 'package:portfolio/core/widgets/responsive_designer.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/code_block.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/portfolio_details.dart';
@@ -15,13 +16,9 @@ class HomeView extends StatelessWidget {
             ? Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  addStack(
-                    const CodeBlock(),
-                    350,
-                    200,
-                  ),
+                  const CodeBlock().addStack(width: 350, height: 200),
                   const SizedBox(
-                    width: 16,
+                    height: 16,
                   ),
                   const PortfolioDetials(),
                 ],
@@ -33,11 +30,7 @@ class HomeView extends StatelessWidget {
                   const SizedBox(
                     width: 16,
                   ),
-                  addStack(
-                    const CodeBlock(),
-                    350,
-                    200,
-                  ),
+                  const CodeBlock().addStack(width: 350, height: 200),
                 ],
               ),
       ),
