@@ -1,39 +1,46 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/extensions/add_stack.dart';
-import 'package:portfolio/core/widgets/responsive_designer.dart';
-import 'package:portfolio/features/home/presentation/views/widgets/code_block.dart';
-import 'package:portfolio/features/home/presentation/views/widgets/portfolio_details.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/extensions/seperator.dart';
+import 'package:portfolio/core/widgets/gradient_background_scaffold.dart';
+import 'package:portfolio/features/drawer/presentation/views/drawer.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/drawer_opener.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/follow_me.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/pages_view.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/vertical_nav_bar.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.sizeOf(context).width;
-    return Center(
-      child: SingleChildScrollView(
-        child: width < BreakPoints.desktop
-            ? Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const CodeBlock().addStack(width: 350, height: 200),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const PortfolioDetials(),
-                ],
-              )
-            : Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const PortfolioDetials(),
-                  const SizedBox(
-                    width: 16,
-                  ),
-                  const CodeBlock().addStack(width: 350, height: 200),
-                ],
-              ),
-      ),
+    return BlocBuilder<HomeCubit, HomeState>(
+      builder: (context, state) {
+        return GradientBackgroundScaffold(
+          drawer: const CustomDrawer(),
+          body: Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: 16,
+            ),
+            child: Row(
+              children: [
+                const DrawerOpener(),
+                const FollowMe(),
+                const Expanded(
+                  child: PagesView(),
+                ),
+                const VerticalNavigationBar(),
+              ]
+                  .seperator(
+                    const SizedBox(
+                      width: 8,
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
+        );
+      },
     );
   }
 }

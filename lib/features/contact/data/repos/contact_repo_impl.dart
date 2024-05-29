@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/features/contact/data/models/email_model.dart';
 import 'package:portfolio/features/contact/data/repos/contact_repo.dart';
 import 'package:http/http.dart' as http;
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class ContactRepoImpl implements ContactRepo {
   @override
@@ -33,7 +33,7 @@ class ContactRepoImpl implements ContactRepo {
               'user_name': emailModel.name,
               'user_subject': emailModel.subject,
               'user_message': emailModel.message,
-              'to_email': context.read<MainCubit>().personalData.email,
+              'to_email': context.read<HomeCubit>().personalData.email,
             },
           },
         ),

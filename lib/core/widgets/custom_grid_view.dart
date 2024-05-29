@@ -12,7 +12,6 @@ class CustomGridView extends StatelessWidget {
   final Widget Function(BuildContext context, int index) itemBuilder;
   @override
   Widget build(BuildContext context) {
-    print(MediaQuery.sizeOf(context).width);
     return ScrollConfiguration(
       behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
       child: GridView.builder(

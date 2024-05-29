@@ -7,7 +7,7 @@ import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/core/widgets/social_media_button.dart';
 import 'package:portfolio/features/drawer/data/models/social_media_model.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class FollowMe extends StatelessWidget {
   const FollowMe({
@@ -16,7 +16,7 @@ class FollowMe extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PersonalDataModel personalData = context.read<MainCubit>().personalData;
+    PersonalDataModel personalData = context.read<HomeCubit>().personalData;
     return Column(
       mainAxisSize: MainAxisSize.min,
       children: [

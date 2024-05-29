@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class NavBarIcon extends StatelessWidget {
   const NavBarIcon({
@@ -12,18 +12,18 @@ class NavBarIcon extends StatelessWidget {
   final int index;
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainCubit, MainState>(
+    return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
         return InkWell(
           borderRadius: BorderRadius.circular(24),
           onTap: () {
-            context.read<MainCubit>().changePageIndex(index);
+            context.read<HomeCubit>().changePageIndex(index);
           },
           child: AnimatedContainer(
             duration: const Duration(milliseconds: 500),
             curve: Curves.easeInOut,
             decoration: ShapeDecoration(
-              color: context.read<MainCubit>().pageIndex == index
+              color: context.read<HomeCubit>().pageIndex == index
                   ? Colors.white
                   : Colors.transparent,
               shape: const OvalBorder(),
@@ -32,7 +32,7 @@ class NavBarIcon extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: ImageIcon(
                 AssetImage(imagePath),
-                color: context.read<MainCubit>().pageIndex == index
+                color: context.read<HomeCubit>().pageIndex == index
                     ? Colors.black
                     : Colors.white,
               ),

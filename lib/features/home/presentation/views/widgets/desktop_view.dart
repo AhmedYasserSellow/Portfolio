@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/core/extensions/seperator.dart';
 import 'package:portfolio/core/widgets/gradient_background_scaffold.dart';
 import 'package:portfolio/features/drawer/presentation/views/drawer.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/drawer_opener.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/follow_me.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/vertical_nav_bar.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/pages_view.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/drawer_opener.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/follow_me.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/vertical_nav_bar.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/pages_view.dart';
 
 class DesktopView extends StatelessWidget {
   const DesktopView({

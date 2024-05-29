@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/models/personal_data_model.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/contact_info_list_tile.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class ContactInfoList extends StatelessWidget {
   const ContactInfoList({super.key});
@@ -10,7 +10,7 @@ class ContactInfoList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PersonalDataModel personalDataModel =
-        context.read<MainCubit>().personalData;
+        context.read<HomeCubit>().personalData;
     return Column(
       children: [
         ContactInfoListTile(

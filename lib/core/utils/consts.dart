@@ -25,7 +25,8 @@ abstract class FirestoreKeys {
   static const String fName = 'name';
   static const String fDescription = 'description';
   static const String fLink = 'link';
-  static const String fPhotoLink = 'photoLink';
+  static const String fPhotoLink = 'photo_link';
+  // static const String fPhotoName = 'photo_name';
 
   // certifications data varibales
   static const String fSource = 'source';

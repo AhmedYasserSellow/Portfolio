@@ -1,29 +1,76 @@
 import 'package:flutter/material.dart';
 import 'package:type_text/type_rich_text.dart';
 
-class CodeBlock extends StatelessWidget {
+class CodeBlock extends StatefulWidget {
   const CodeBlock({
     super.key,
   });
 
   @override
+  State<CodeBlock> createState() => _CodeBlockState();
+}
+
+class _CodeBlockState extends State<CodeBlock>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    )
+      ..addListener(() {
+        setState(() {});
+      })
+      ..forward();
+  }
+
+  @override
+  void dispose() {
+    controller.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      width: 350,
-      height: 200,
-      decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: const Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return SizedBox(
+      height: 220,
+      width: 365,
+      child: Stack(
         children: [
-          MacDots(),
-          SizedBox(
-            height: 8,
+          Container(
+            width: 350,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.grey,
+              borderRadius: BorderRadius.circular(16),
+            ),
           ),
-          Code(),
+          Container(
+            margin: EdgeInsets.only(
+              top: 20 * controller.value,
+              left: 15 * controller.value,
+            ),
+            padding: const EdgeInsets.all(16),
+            width: 350,
+            height: 200,
+            decoration: BoxDecoration(
+              color: Colors.black,
+              borderRadius: BorderRadius.circular(16),
+            ),
+            child: const Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                MacDots(),
+                SizedBox(
+                  height: 8,
+                ),
+                Code(),
+              ],
+            ),
+          ),
         ],
       ),
     );

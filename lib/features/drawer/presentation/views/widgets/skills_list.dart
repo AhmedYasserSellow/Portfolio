@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/skill_list_tile.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class SkillsList extends StatelessWidget {
   const SkillsList({super.key});
@@ -25,7 +25,7 @@ class SkillsList extends StatelessWidget {
         const SizedBox(height: 12),
         Column(
           children: context
-              .read<MainCubit>()
+              .read<HomeCubit>()
               .skillsModelList
               .map(
                 (skillModel) => SkillListTile(skillModel: skillModel),

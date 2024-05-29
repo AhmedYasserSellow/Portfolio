@@ -7,10 +7,10 @@ import 'package:portfolio/features/certifications/data/models/certificate_model.
 import 'package:portfolio/features/drawer/data/models/skill_model.dart';
 import 'package:portfolio/features/projects/data/models/project_model.dart';
 
-part 'main_state.dart';
+part 'home_state.dart';
 
-class MainCubit extends Cubit<MainState> {
-  MainCubit() : super(MainInitial());
+class HomeCubit extends Cubit<HomeState> {
+  HomeCubit() : super(HomeInitial());
 
   PageController controller = PageController();
   late PersonalDataModel personalData;
@@ -20,7 +20,6 @@ class MainCubit extends Cubit<MainState> {
   int pageIndex = 0;
 
   void changePageIndex(int index) {
-    emit(ChangePageIndex());
     controller.animateToPage(
       index,
       duration: const Duration(
@@ -29,6 +28,7 @@ class MainCubit extends Cubit<MainState> {
       curve: Curves.easeIn,
     );
     pageIndex = index;
+    emit(ChangePageIndex());
   }
 
   Future loadData() async {
@@ -51,9 +51,7 @@ class MainCubit extends Cubit<MainState> {
     await firestore.collection(FirestoreKeys.cProjects).get().then((value) {
       projectModelsList = List.generate(
         value.docs.length,
-        (index) => ProjectModel.fromSnapshot(
-          value.docs[index],
-        ),
+        (index) => ProjectModel.fromSnapshot(value.docs[index]),
       );
     });
   }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:portfolio/features/splash/presentation/views/splash_view.dart';
 import 'firebase_options.dart';
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MainCubit(),
+      create: (context) => HomeCubit(),
       child: MaterialApp(
         // locale: DevicePreview.locale(context),
         // builder: DevicePreview.appBuilder,

@@ -4,7 +4,7 @@ import 'package:portfolio/core/models/personal_data_model.dart';
 import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/features/drawer/data/models/social_media_model.dart';
 import 'package:portfolio/core/widgets/social_media_button.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class SocialMedia extends StatelessWidget {
   const SocialMedia({super.key});
@@ -12,7 +12,7 @@ class SocialMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final PersonalDataModel personalDataModel =
-        context.read<MainCubit>().personalData;
+        context.read<HomeCubit>().personalData;
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [

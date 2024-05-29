@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/core/widgets/gradient_background_scaffold.dart';
-import 'package:portfolio/features/main/presentation/view_models/main_cubit/main_cubit.dart';
-import 'package:portfolio/features/main/presentation/views/main_view.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
+import 'package:portfolio/features/home/presentation/views/home_view.dart';
 
 class SplashView extends StatefulWidget {
   const SplashView({super.key});
@@ -19,7 +19,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-    context.read<MainCubit>().loadData();
+    context.read<HomeCubit>().loadData();
     controller = AnimationController(
       vsync: this,
       duration: const Duration(seconds: 3),
@@ -31,7 +31,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
             context,
             MaterialPageRoute(
               builder: (context) {
-                return const MainView();
+                return const HomeView();
               },
             ),
           ),

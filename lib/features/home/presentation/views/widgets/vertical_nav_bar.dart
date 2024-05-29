@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/extensions/seperator.dart';
 import 'package:portfolio/core/utils/app_images.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/nav_bar_icon.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/nav_bar_icon.dart';
 
 class VerticalNavigationBar extends StatelessWidget {
   const VerticalNavigationBar({super.key});

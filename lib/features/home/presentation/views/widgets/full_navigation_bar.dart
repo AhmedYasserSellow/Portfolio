@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/custom_navigation_bar.dart';
-import 'package:portfolio/features/main/presentation/views/widgets/drawer_opener.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/custom_navigation_bar.dart';
+import 'package:portfolio/features/home/presentation/views/widgets/drawer_opener.dart';
 
 class FullNavigationBar extends StatelessWidget implements PreferredSizeWidget {
   const FullNavigationBar({
