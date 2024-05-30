@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class NavBarIcon extends StatelessWidget {
@@ -24,7 +25,7 @@ class NavBarIcon extends StatelessWidget {
             curve: Curves.easeInOut,
             decoration: ShapeDecoration(
               color: context.read<HomeCubit>().pageIndex == index
-                  ? Colors.white
+                  ? AppColors.kcbgColor
                   : Colors.transparent,
               shape: const OvalBorder(),
             ),
@@ -33,8 +34,8 @@ class NavBarIcon extends StatelessWidget {
               child: ImageIcon(
                 AssetImage(imagePath),
                 color: context.read<HomeCubit>().pageIndex == index
-                    ? Colors.black
-                    : Colors.white,
+                    ? AppColors.kcPrimary
+                    : AppColors.kcSecondary,
               ),
             ),
           ),

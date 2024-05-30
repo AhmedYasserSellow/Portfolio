@@ -77,10 +77,10 @@ class _EmailFormState extends State<EmailForm> {
                 height: 50,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(24),
-                  gradient: const LinearGradient(
+                  gradient: LinearGradient(
                     colors: [
-                      AppColors.kcGalaxyColor3,
-                      AppColors.kcGalaxyColor4,
+                      AppColors.kcThird,
+                      AppColors.kcPrimary,
                     ],
                   ),
                 ),

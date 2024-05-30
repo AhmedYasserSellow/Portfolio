@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:portfolio/features/splash/presentation/views/splash_view.dart';
@@ -31,6 +32,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           fontFamily: 'Cairo',
           brightness: Brightness.dark,
+          scaffoldBackgroundColor: AppColors.kcbgColor,
         ),
         debugShowCheckedModeBanner: false,
         title: 'Portfolio',

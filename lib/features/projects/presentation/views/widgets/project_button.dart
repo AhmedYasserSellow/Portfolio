@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 
@@ -37,7 +38,7 @@ class _ProjectButtonState extends State<ProjectButton>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
+    return InkWell(
       onTap: widget.onTap,
       child: MouseRegion(
         onHover: (PointerEvent event) {
@@ -55,7 +56,7 @@ class _ProjectButtonState extends State<ProjectButton>
                 child: Container(
                   padding:
                       const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
-                  color: Colors.white,
+                  color: AppColors.kcSecondary,
                   child: Opacity(
                     opacity: 0,
                     child: Row(
@@ -83,7 +84,7 @@ class _ProjectButtonState extends State<ProjectButton>
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   border: Border.all(
-                    color: Colors.black,
+                    color: AppColors.kcPrimary,
                   ),
                 ),
                 child: Row(
@@ -91,7 +92,9 @@ class _ProjectButtonState extends State<ProjectButton>
                   children: [
                     Text(
                       'View Project',
-                      style: AppTextStyles.ktsNormal,
+                      style: AppTextStyles.ktsNormal.copyWith(
+                        color: AppColors.kcPrimary,
+                      ),
                     ),
                     const SizedBox(
                       width: 8,
@@ -99,6 +102,7 @@ class _ProjectButtonState extends State<ProjectButton>
                     Image.asset(
                       Assets.imagesGithub,
                       width: 24,
+                      color: Colors.white,
                     ),
                   ],
                 ),

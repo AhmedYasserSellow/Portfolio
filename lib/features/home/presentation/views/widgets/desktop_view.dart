@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/extensions/seperator.dart';
-import 'package:portfolio/core/widgets/gradient_background_scaffold.dart';
 import 'package:portfolio/features/drawer/presentation/views/drawer.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/drawer_opener.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/follow_me.dart';
@@ -15,7 +14,7 @@ class DesktopView extends StatelessWidget {
   final PageController controller;
   @override
   Widget build(BuildContext context) {
-    return GradientBackgroundScaffold(
+    return Scaffold(
       drawer: const CustomDrawer(),
       body: Padding(
         padding: const EdgeInsets.symmetric(

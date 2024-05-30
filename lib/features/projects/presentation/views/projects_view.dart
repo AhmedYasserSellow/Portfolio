@@ -21,22 +21,26 @@ class ProjectsView extends StatelessWidget {
           height: 8,
         ),
         Expanded(
-          child: ListView(
-            children: List.generate(
-                    context.read<HomeCubit>().projectModelsList.length,
-                    (index) {
-              return ProjectItem(
-                projectModel:
-                    context.read<HomeCubit>().projectModelsList[index],
-                index: index,
-              );
-            })
-                .seperator(
-                  const SizedBox(
-                    height: 16,
-                  ),
-                )
-                .toList(),
+          child: ScrollConfiguration(
+            behavior:
+                ScrollConfiguration.of(context).copyWith(scrollbars: false),
+            child: ListView(
+              children: List.generate(
+                      context.read<HomeCubit>().projectModelsList.length,
+                      (index) {
+                return ProjectItem(
+                  projectModel:
+                      context.read<HomeCubit>().projectModelsList[index],
+                  index: index,
+                );
+              })
+                  .seperator(
+                    const SizedBox(
+                      height: 16,
+                    ),
+                  )
+                  .toList(),
+            ),
           ),
         ),
       ],
