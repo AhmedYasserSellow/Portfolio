@@ -3,10 +3,15 @@ import 'package:portfolio/features/drawer/data/models/social_media_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SocialMediaButton extends StatelessWidget {
-  const SocialMediaButton(
-      {super.key, required this.socialMediaModel, this.iconSize = 24});
+  const SocialMediaButton({
+    super.key,
+    required this.socialMediaModel,
+    this.iconSize = 24,
+    this.color,
+  });
   final SocialMediaModel socialMediaModel;
   final double iconSize;
+  final Color? color;
   @override
   Widget build(BuildContext context) {
     return IconButton(
@@ -17,7 +22,7 @@ class SocialMediaButton extends StatelessWidget {
       icon: Image(
         image: AssetImage(socialMediaModel.imagePath),
         width: iconSize,
-        // color: Colors.grey,
+        color: color,
       ),
     );
   }

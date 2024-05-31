@@ -34,6 +34,7 @@ class SocialMedia extends StatelessWidget {
             imagePath: Assets.imagesGithub,
             linkURL: 'https://github.com/${personalDataModel.github}',
           ),
+          color: Colors.white,
         ),
       ],
     );

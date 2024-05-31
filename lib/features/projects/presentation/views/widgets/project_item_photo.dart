@@ -8,15 +8,17 @@ class ProjectItemPhoto extends StatelessWidget {
     super.key,
     required this.projectModel,
     required this.index,
+    required this.height,
   });
 
   final ProjectModel projectModel;
   final int index;
+  final double height;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 150,
+      height: height,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
         color: AppColors.kcSecondary,
@@ -26,7 +28,7 @@ class ProjectItemPhoto extends StatelessWidget {
           Positioned(
             right: 20,
             bottom: 15,
-            height: 150,
+            height: height,
             child: Opacity(
               opacity: 0.5,
               child: Image.network(

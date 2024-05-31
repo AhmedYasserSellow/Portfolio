@@ -8,14 +8,15 @@ class ProjectItemDetails extends StatelessWidget {
   const ProjectItemDetails({
     super.key,
     required this.projectModel,
+    required this.height,
   });
 
   final ProjectModel projectModel;
-
+  final double height;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 150,
+      height: height,
       child: Column(
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,

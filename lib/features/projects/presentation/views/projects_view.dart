@@ -32,6 +32,7 @@ class ProjectsView extends StatelessWidget {
                   projectModel:
                       context.read<HomeCubit>().projectModelsList[index],
                   index: index,
+                  itemHeight: 120,
                 );
               })
                   .seperator(

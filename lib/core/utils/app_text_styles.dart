@@ -4,14 +4,14 @@ import 'package:portfolio/core/utils/app_colors.dart';
 abstract class AppTextStyles {
   // Text Styles start with [kts]
   static TextStyle ktsNormal =
-      const TextStyle(color: Colors.grey, fontSize: 12);
-  static TextStyle ktsHeader = const TextStyle(
-    color: Colors.white,
+      TextStyle(color: AppColors.kcThird, fontSize: 12);
+  static TextStyle ktsHeader = TextStyle(
+    color: AppColors.kcPrimary,
     fontSize: 12,
     fontWeight: FontWeight.bold,
   );
   static TextStyle ktsMediumHeader = TextStyle(
-    color: Colors.white.withOpacity(0.8),
+    color: AppColors.kcThird,
     fontSize: 24,
     fontWeight: FontWeight.bold,
   );

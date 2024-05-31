@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/contact_info_list.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/profile_box.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/skills_list.dart';
@@ -11,6 +12,7 @@ class CustomDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 0,
+      backgroundColor: AppColors.kcbgColor,
       child: ScrollConfiguration(
         behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
         child: const SingleChildScrollView(

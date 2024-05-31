@@ -33,7 +33,6 @@ class PortfolioDetials extends StatelessWidget {
           height: 20,
         ),
         ConnectButton(
-          color: Colors.blue,
           icon: FontAwesomeIcons.download,
           title: 'Download CV',
           linkUrl: context.read<HomeCubit>().personalData.cv,

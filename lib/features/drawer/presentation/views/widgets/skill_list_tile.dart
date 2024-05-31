@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/drawer/data/models/skill_model.dart';
 
@@ -35,7 +36,7 @@ class SkillListTile extends StatelessWidget {
               child: LinearProgressIndicator(
                 borderRadius: BorderRadius.circular(16),
                 value: value.toDouble() / 100,
-                color: Colors.blue,
+                color: AppColors.kcPrimaryDraker,
               ),
             ),
           ],
