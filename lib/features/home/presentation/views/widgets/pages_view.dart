@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/features/achhievements/presentation/views/achievements_view.dart';
 import 'package:portfolio/features/certifications/presentation/views/certifications_view.dart';
 import 'package:portfolio/features/contact/presentation/views/contact_view.dart';
 import 'package:portfolio/features/intro/presentation/views/intro_view.dart';
@@ -10,26 +9,22 @@ import 'package:portfolio/features/projects/presentation/views/projects_view.dar
 class PagesView extends StatelessWidget {
   const PagesView({
     super.key,
+    required this.scrollDirection,
   });
-
+  final Axis scrollDirection;
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Padding(
-        padding: const EdgeInsets.all(16),
-        child: PageView(
-          physics: const NeverScrollableScrollPhysics(),
-          scrollDirection: Axis.vertical,
-          controller: context.read<HomeCubit>().controller,
-          // onPageChanged: context.read<HomeCubit>().changePageIndex,
-          children: const [
-            IntroView(),
-            ProjectsView(),
-            CertificationView(),
-            AchievementsView(),
-            ContactView(),
-          ],
-        ),
+      child: PageView(
+        physics: const NeverScrollableScrollPhysics(),
+        scrollDirection: scrollDirection,
+        controller: context.read<HomeCubit>().pageController,
+        children: const [
+          IntroView(),
+          ProjectsView(),
+          CertificationView(),
+          ContactView(),
+        ],
       ),
     );
   }

@@ -18,7 +18,7 @@ class SkillsList extends StatelessWidget {
             ),
             Text(
               'Skills',
-              style: AppTextStyles.ktsHeader,
+              style: AppTextStyles.ktsHeader(context),
             ),
           ],
         ),

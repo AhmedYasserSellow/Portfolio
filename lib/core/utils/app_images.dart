@@ -33,6 +33,10 @@ class Assets {
   /// assets/icons/certificate.png
   static const String iconsCertificate = "assets/icons/certificate.png";
 
+  /// Assets for ImagesDiscord
+  /// assets/images/discord.png
+  static const String imagesDiscord = "assets/images/discord.png";
+
   /// Assets for iconsIdCard
   /// assets/icons/id_card.png
   static const String iconsIdCard = "assets/icons/id_card.png";
@@ -48,4 +52,6 @@ class Assets {
   /// Assets for iconsEnvelope
   /// assets/icons/envelope.png
   static const String iconsEnvople = "assets/icons/envelope.png";
+
+  ///
 }

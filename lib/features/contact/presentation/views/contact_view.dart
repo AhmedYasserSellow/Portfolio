@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/app_text_styles.dart';
+import 'package:portfolio/features/contact/presentation/views/widgets/contact_view_header.dart';
 import 'package:portfolio/features/contact/presentation/views/widgets/email_form.dart';
 
 class ContactView extends StatelessWidget {
@@ -7,25 +7,39 @@ class ContactView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'Let\'s work',
-              style: AppTextStyles.ktsBigHeader,
-            ),
-            Text(
-              'I would love to hear from you!',
-              style: AppTextStyles.ktsMediumHeader,
-            ),
-          ],
+    double width = MediaQuery.sizeOf(context).width;
+    if (width < 800) {
+      // Mobile and Tablet View
+      return Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const ContactViewHeader(),
+              const SizedBox(
+                height: 16,
+              ),
+              width <= 512
+                  ? const EmailFormWithButtonOutside()
+                  : const EmailFormWithButtonInside(),
+            ],
+          ),
         ),
-        const EmailForm(),
-      ],
-    );
+      );
+    } else {
+      // Desktop View
+      return const Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          ContactViewHeader(
+            crossAxisAlignment: CrossAxisAlignment.start,
+          ),
+          SizedBox(
+            width: 16,
+          ),
+          EmailFormWithButtonInside(),
+        ],
+      );
+    }
   }
 }

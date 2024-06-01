@@ -1,5 +1,7 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
+import 'package:portfolio/core/extensions/responsive_text.dart';
 import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/certifications/data/models/certificate_model.dart';
@@ -20,11 +22,13 @@ class CertificationDialog extends StatelessWidget {
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            certificateModel.name,
-            maxLines: 3,
-            style: AppTextStyles.ktsBigHeader.copyWith(
-              fontSize: 24,
+          Flexible(
+            child: Text(
+              certificateModel.name,
+              maxLines: 3,
+              style: AppTextStyles.ktsBigHeader(context).copyWith(
+                fontSize: 24.toResponsiveFontSize(context),
+              ),
             ),
           ),
           IconButton(
@@ -40,8 +44,8 @@ class CertificationDialog extends StatelessWidget {
       ),
       content: AspectRatio(
         aspectRatio: 9 / 10,
-        child: Image.network(
-          certificateModel.link,
+        child: CachedNetworkImage(
+          imageUrl: certificateModel.link,
         ),
       ),
     );

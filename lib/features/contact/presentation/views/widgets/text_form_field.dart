@@ -1,24 +1,20 @@
 import 'package:flutter/material.dart';
 
 class TextInputField extends StatelessWidget {
-  const TextInputField({
-    super.key,
-    required this.controller,
-    required this.text,
-    this.maxLines = 1,
-  });
+  const TextInputField(
+      {super.key,
+      required this.controller,
+      required this.text,
+      this.maxLines = 1,
+      this.validator});
   final TextEditingController controller;
   final String text;
   final int maxLines;
+  final String? Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return '${text.toLowerCase()} cannot be empty';
-        }
-        return null;
-      },
+      validator: validator,
       maxLines: maxLines,
       cursorColor: Colors.white,
       controller: controller,

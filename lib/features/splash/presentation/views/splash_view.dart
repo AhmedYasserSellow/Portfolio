@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
@@ -12,7 +13,8 @@ class SplashView extends StatefulWidget {
   State<SplashView> createState() => _SplashViewState();
 }
 
-class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
+class _SplashViewState extends State<SplashView>
+    with SingleTickerProviderStateMixin {
   late AnimationController controller;
 
   @override
@@ -61,7 +63,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
               width: 100,
               child: LinearProgressIndicator(
                 value: controller.value,
-                color: Colors.blue,
+                color: AppColors.kcPrimary,
               ),
             ),
             const SizedBox(
@@ -69,7 +71,7 @@ class _SplashViewState extends State<SplashView> with TickerProviderStateMixin {
             ),
             Text(
               '${(controller.value * 100).toInt()} %',
-              style: AppTextStyles.ktsNormal,
+              style: AppTextStyles.ktsNormal(context),
             )
           ],
         ),

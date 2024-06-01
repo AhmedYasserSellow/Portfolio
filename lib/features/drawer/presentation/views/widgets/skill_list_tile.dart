@@ -24,11 +24,11 @@ class SkillListTile extends StatelessWidget {
               ),
               title: Text(
                 skillModel.title,
-                style: AppTextStyles.ktsHeader,
+                style: AppTextStyles.ktsHeader(context),
               ),
               trailing: Text(
                 '${value.round()}' '%',
-                style: AppTextStyles.ktsNormal,
+                style: AppTextStyles.ktsNormal(context),
               ),
             ),
             Padding(

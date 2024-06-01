@@ -11,11 +11,11 @@ class ContactInfoListTile extends StatelessWidget {
     return ListTile(
       leading: Text(
         title,
-        style: AppTextStyles.ktsHeader,
+        style: AppTextStyles.ktsHeader(context),
       ),
       trailing: Text(
         info,
-        style: AppTextStyles.ktsNormal,
+        style: AppTextStyles.ktsNormal(context),
       ),
     );
   }

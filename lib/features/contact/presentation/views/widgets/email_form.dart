@@ -1,102 +1,107 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/utils/app_colors.dart';
-import 'package:portfolio/core/utils/app_text_styles.dart';
-import 'package:portfolio/features/contact/data/models/email_model.dart';
-import 'package:portfolio/features/contact/data/repos/contact_repo_impl.dart';
-import 'package:portfolio/features/contact/presentation/views/widgets/text_form_field.dart';
+import 'package:portfolio/features/contact/presentation/views/widgets/email_form_text_fields.dart';
+import 'package:portfolio/features/contact/presentation/views/widgets/submit_button.dart';
 
-class EmailForm extends StatefulWidget {
-  const EmailForm({super.key});
+class EmailFormWithButtonInside extends StatefulWidget {
+  const EmailFormWithButtonInside({super.key});
 
   @override
-  State<EmailForm> createState() => _EmailFormState();
+  State<EmailFormWithButtonInside> createState() =>
+      _EmailFormWithButtonInsideState();
 }
 
-class _EmailFormState extends State<EmailForm> {
+class _EmailFormWithButtonInsideState extends State<EmailFormWithButtonInside> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController messageController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(16),
-      width: 500,
-      height: 450,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
-        color: Colors.black,
-      ),
-      child: Form(
-        key: formKey,
-        child: Column(
-          children: [
-            TextInputField(
-              controller: nameController,
-              text: 'Name',
+    return Flexible(
+      child: ConstrainedBox(
+        constraints: const BoxConstraints(
+          maxHeight: 500,
+          maxWidth: 500,
+        ),
+        child: AspectRatio(
+          aspectRatio: 1,
+          child: Container(
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(16),
+              color: Colors.black,
             ),
-            const SizedBox(
-              height: 16,
-            ),
-            TextInputField(
-              controller: emailController,
-              text: 'Email',
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            TextInputField(
-              maxLines: 5,
-              controller: messageController,
-              text: 'Message',
-            ),
-            const Expanded(
-              child: SizedBox(
-                height: 16,
-              ),
-            ),
-            InkWell(
-              onTap: () {
-                if (formKey.currentState!.validate()) {
-                  ContactRepoImpl().sendEmail(
-                    context,
-                    EmailModel(
-                      name: nameController.text,
-                      email: emailController.text,
-                      message: messageController.text,
-                      subject: 'I love to work with you',
-                    ),
-                  );
-                  nameController.clear();
-                  emailController.clear();
-                  messageController.clear();
-                }
-              },
-              child: Container(
-                width: 200,
-                height: 50,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(24),
-                  gradient: LinearGradient(
-                    colors: [
-                      AppColors.kcThird,
-                      AppColors.kcPrimary,
-                    ],
+            child: Form(
+              key: formKey,
+              child: Column(
+                children: [
+                  FormTextFields(
+                    nameController: nameController,
+                    emailController: emailController,
+                    messageController: messageController,
                   ),
-                ),
-                child: Center(
-                  child: Text(
-                    'Send Message',
-                    style: AppTextStyles.ktsHeader.copyWith(
-                      color: Colors.black,
+                  const Expanded(
+                    child: SizedBox(
+                      height: 16,
                     ),
                   ),
-                ),
+                  SubmitButton(
+                    formKey: formKey,
+                    nameController: nameController,
+                    emailController: emailController,
+                    messageController: messageController,
+                  ),
+                ],
               ),
             ),
-          ],
+          ),
         ),
       ),
+    );
+  }
+}
+
+class EmailFormWithButtonOutside extends StatefulWidget {
+  const EmailFormWithButtonOutside({super.key});
+
+  @override
+  State<EmailFormWithButtonOutside> createState() =>
+      _EmailFormWithButtonOutsideState();
+}
+
+class _EmailFormWithButtonOutsideState
+    extends State<EmailFormWithButtonOutside> {
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController messageController = TextEditingController();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Container(
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            color: Colors.black,
+          ),
+          child: Form(
+            key: formKey,
+            child: FormTextFields(
+              nameController: nameController,
+              emailController: emailController,
+              messageController: messageController,
+            ),
+          ),
+        ),
+        const SizedBox(height: 16),
+        SubmitButton(
+          formKey: formKey,
+          nameController: nameController,
+          emailController: emailController,
+          messageController: messageController,
+        ),
+      ],
     );
   }
 }

@@ -55,7 +55,7 @@ class _ProjectButtonState extends State<ProjectButton>
                 position: animation,
                 child: Container(
                   padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                      const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                   color: AppColors.kcSecondary,
                   child: Opacity(
                     opacity: 0,
@@ -64,10 +64,12 @@ class _ProjectButtonState extends State<ProjectButton>
                       children: [
                         Text(
                           'View Project',
-                          style: AppTextStyles.ktsNormal,
+                          style: AppTextStyles.ktsNormal(context),
                         ),
-                        const SizedBox(
-                          width: 8,
+                        const Flexible(
+                          child: SizedBox(
+                            width: 8,
+                          ),
                         ),
                         Image.asset(
                           Assets.imagesGithub,
@@ -79,8 +81,7 @@ class _ProjectButtonState extends State<ProjectButton>
                 ),
               ),
               Container(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 8),
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                   border: Border.all(
@@ -92,12 +93,14 @@ class _ProjectButtonState extends State<ProjectButton>
                   children: [
                     Text(
                       'View Project',
-                      style: AppTextStyles.ktsNormal.copyWith(
+                      style: AppTextStyles.ktsNormal(context).copyWith(
                         color: AppColors.kcPrimary,
                       ),
                     ),
-                    const SizedBox(
-                      width: 8,
+                    const Flexible(
+                      child: SizedBox(
+                        width: 8,
+                      ),
                     ),
                     Image.asset(
                       Assets.imagesGithub,

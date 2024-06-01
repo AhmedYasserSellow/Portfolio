@@ -23,11 +23,11 @@ class PortfolioDetials extends StatelessWidget {
       children: [
         Text(
           text,
-          style: AppTextStyles.ktsBigHeader,
+          style: AppTextStyles.ktsBigHeader(context),
         ),
         Text(
           intro,
-          style: AppTextStyles.ktsMediumHeader,
+          style: AppTextStyles.ktsMediumHeader(context),
         ),
         const SizedBox(
           height: 20,

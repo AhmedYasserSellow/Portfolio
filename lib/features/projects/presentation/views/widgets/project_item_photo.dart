@@ -43,7 +43,7 @@ class ProjectItemPhoto extends StatelessWidget {
               (index + 1).toString().length == 1
                   ? '0${(index + 1).toString()}'
                   : (index + 1).toString(),
-              style: AppTextStyles.ktsBigHeader,
+              style: AppTextStyles.ktsBigHeader(context),
             ),
           ),
         ],

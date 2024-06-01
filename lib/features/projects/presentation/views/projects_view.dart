@@ -15,7 +15,7 @@ class ProjectsView extends StatelessWidget {
       children: [
         Text(
           'My Projects',
-          style: AppTextStyles.ktsBigHeader,
+          style: AppTextStyles.ktsBigHeader(context),
         ),
         const SizedBox(
           height: 8,
@@ -26,15 +26,16 @@ class ProjectsView extends StatelessWidget {
                 ScrollConfiguration.of(context).copyWith(scrollbars: false),
             child: ListView(
               children: List.generate(
-                      context.read<HomeCubit>().projectModelsList.length,
-                      (index) {
-                return ProjectItem(
-                  projectModel:
-                      context.read<HomeCubit>().projectModelsList[index],
-                  index: index,
-                  itemHeight: 120,
-                );
-              })
+                context.read<HomeCubit>().projectModelsList.length,
+                (index) {
+                  return ProjectItem(
+                    projectModel:
+                        context.read<HomeCubit>().projectModelsList[index],
+                    index: index,
+                    itemHeight: 120,
+                  );
+                },
+              )
                   .seperator(
                     const SizedBox(
                       height: 16,

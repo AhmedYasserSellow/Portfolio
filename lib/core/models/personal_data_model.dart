@@ -9,6 +9,7 @@ class PersonalDataModel {
       facebook,
       twitter,
       instagram,
+      discord,
       photo,
       cv;
   const PersonalDataModel({
@@ -21,6 +22,7 @@ class PersonalDataModel {
     required this.twitter,
     required this.photo,
     required this.cv,
+    required this.discord,
   });
 
   factory PersonalDataModel.fromSnapshot(
@@ -37,6 +39,7 @@ class PersonalDataModel {
       github: data[FirestoreKeys.fGitHub],
       linkedin: data[FirestoreKeys.fLinkedIn],
       photo: data[FirestoreKeys.fPhoto],
+      discord: data[FirestoreKeys.fDiscord],
     );
   }
 }

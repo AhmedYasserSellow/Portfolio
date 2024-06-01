@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/extensions/responsive_text.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/projects/data/models/project_model.dart';
 import 'package:portfolio/features/projects/presentation/views/widgets/project_button.dart';
@@ -25,13 +26,13 @@ class ProjectItemDetails extends StatelessWidget {
             projectModel.name,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: AppTextStyles.ktsHeader.copyWith(
-              fontSize: 24,
+            style: AppTextStyles.ktsHeader(context).copyWith(
+              fontSize: 24.toResponsiveFontSize(context),
             ),
           ),
           Text(
             projectModel.description,
-            maxLines: 1,
+            maxLines: 2,
             overflow: TextOverflow.ellipsis,
           ),
           const Expanded(child: SizedBox()),

@@ -15,7 +15,7 @@ class CertificationView extends StatelessWidget {
       children: [
         Text(
           'Certifications',
-          style: AppTextStyles.ktsBigHeader,
+          style: AppTextStyles.ktsBigHeader(context),
         ),
         const SizedBox(
           height: 8,

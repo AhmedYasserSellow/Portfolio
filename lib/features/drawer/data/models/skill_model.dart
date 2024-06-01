@@ -8,7 +8,7 @@ class SkillModel {
     required this.value,
   });
   final String imagePath, title;
-  final double value;
+  final num value;
 
   factory SkillModel.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> document) {

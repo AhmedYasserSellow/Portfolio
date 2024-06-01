@@ -12,7 +12,7 @@ part 'home_state.dart';
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
 
-  PageController controller = PageController();
+  late PageController pageController;
   late PersonalDataModel personalData;
   late List<ProjectModel> projectModelsList;
   late List<CertificateModel> certificationsModelList;
@@ -20,7 +20,7 @@ class HomeCubit extends Cubit<HomeState> {
   int pageIndex = 0;
 
   void changePageIndex(int index) {
-    controller.animateToPage(
+    pageController.animateToPage(
       index,
       duration: const Duration(
         milliseconds: 500,
@@ -31,12 +31,30 @@ class HomeCubit extends Cubit<HomeState> {
     emit(ChangePageIndex());
   }
 
+  void initPageView() {
+    pageController = PageController(initialPage: pageIndex);
+  }
+
   Future loadData() async {
     final firestore = FirebaseFirestore.instance;
     getPersonalData(firestore);
     getProjects(firestore);
     getCertifications(firestore);
     getSkills(firestore);
+  }
+
+  Future getCertifications(FirebaseFirestore firestore) async {
+    await firestore
+        .collection(FirestoreKeys.cCertifications)
+        .get()
+        .then((value) {
+      certificationsModelList = List.generate(
+        value.docs.length,
+        (index) => CertificateModel.fromSnapshot(
+          value.docs[index],
+        ),
+      );
+    });
   }
 
   Future getPersonalData(FirebaseFirestore firestore) async {
@@ -52,20 +70,6 @@ class HomeCubit extends Cubit<HomeState> {
       projectModelsList = List.generate(
         value.docs.length,
         (index) => ProjectModel.fromSnapshot(value.docs[index]),
-      );
-    });
-  }
-
-  Future getCertifications(FirebaseFirestore firestore) async {
-    await firestore
-        .collection(FirestoreKeys.cCertifications)
-        .get()
-        .then((value) {
-      certificationsModelList = List.generate(
-        value.docs.length,
-        (index) => CertificateModel.fromSnapshot(
-          value.docs[index],
-        ),
       );
     });
   }

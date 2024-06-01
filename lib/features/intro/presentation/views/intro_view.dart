@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/widgets/responsive_designer.dart';
+import 'package:portfolio/core/widgets/adaptive_layout.dart';
 import 'package:portfolio/features/intro/presentation/views/widgets/code_block.dart';
 import 'package:portfolio/features/intro/presentation/views/widgets/portfolio_details.dart';
 
@@ -11,7 +11,7 @@ class IntroView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return Center(
       child: SingleChildScrollView(
-        child: width < BreakPoints.desktop
+        child: width < BreakPoints.tablet
             ? const Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

@@ -35,14 +35,23 @@ class _CodeBlockState extends State<CodeBlock>
 
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.sizeOf(context).width;
+    double width, height;
+    if (screenWidth < 512) {
+      width = 280;
+      height = 200;
+    } else {
+      width = 350;
+      height = 200;
+    }
     return SizedBox(
-      height: 220,
-      width: 365,
+      height: height + 20,
+      width: width + 15,
       child: Stack(
         children: [
           Container(
-            width: 350,
-            height: 200,
+            width: width,
+            height: height,
             decoration: BoxDecoration(
               color: Colors.grey,
               borderRadius: BorderRadius.circular(16),
@@ -54,8 +63,8 @@ class _CodeBlockState extends State<CodeBlock>
               left: 15 * controller.value,
             ),
             padding: const EdgeInsets.all(16),
-            width: 350,
-            height: 200,
+            width: width,
+            height: height,
             decoration: BoxDecoration(
               color: Colors.black,
               borderRadius: BorderRadius.circular(16),

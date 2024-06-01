@@ -54,7 +54,7 @@ class ContactRepoImpl implements ContactRepo {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text(
-              'Email is no send',
+              'Email is not sent',
               style: TextStyle(color: Colors.white),
             ),
             backgroundColor: Colors.red,

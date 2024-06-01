@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/widgets/responsive_designer.dart';
+import 'package:portfolio/core/widgets/adaptive_layout.dart';
 
 class CustomGridView extends StatelessWidget {
   const CustomGridView({
@@ -19,25 +19,12 @@ class CustomGridView extends StatelessWidget {
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisSpacing: 16,
           mainAxisSpacing: 8,
-          childAspectRatio: ResponsiveDeisgner.isMobile(context) ||
-                  ResponsiveDeisgner.isLargeMobile(context)
-              ? 1.8 // Mobile Aspect Ratio
-              : ResponsiveDeisgner.isTablet(context)
-                  ? 1.5 // Tablet Aspect Ratio
-                  : ResponsiveDeisgner.isDesktop(context)
-                      ? 1.1
-                      : ResponsiveDeisgner.isMediumDesktop(context)
-                          ? 1
-                          : 1.5, // Large Desktop Aspect Ratio
-
-          crossAxisCount: ResponsiveDeisgner.isMobile(context) ||
-                  ResponsiveDeisgner.isLargeMobile(context)
+          childAspectRatio: 1.2,
+          crossAxisCount: AdaptiveLayout.isMobile(context)
               ? 1
-              : ResponsiveDeisgner.isTablet(context)
+              : AdaptiveLayout.isTablet(context)
                   ? 2
-                  : ResponsiveDeisgner.isDesktop(context)
-                      ? 3
-                      : 4,
+                  : 3,
         ),
         itemBuilder: itemBuilder,
       ),

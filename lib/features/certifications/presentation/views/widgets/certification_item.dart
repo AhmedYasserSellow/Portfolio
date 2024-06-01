@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:portfolio/core/utils/app_colors.dart';
@@ -19,12 +20,12 @@ class CertificationItem extends StatefulWidget {
 
 class _CertificationItemState extends State<CertificationItem>
     with SingleTickerProviderStateMixin {
-  late AnimationController controller;
+  late AnimationController certificateController;
 
   @override
   void initState() {
     super.initState();
-    controller = AnimationController(
+    certificateController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 500),
     )..addListener(() {
@@ -34,7 +35,7 @@ class _CertificationItemState extends State<CertificationItem>
 
   @override
   void dispose() {
-    controller.dispose();
+    certificateController.dispose();
     super.dispose();
   }
 
@@ -58,10 +59,10 @@ class _CertificationItemState extends State<CertificationItem>
       },
       child: MouseRegion(
         onHover: (pointer) {
-          controller.forward();
+          certificateController.forward();
         },
         onExit: (pointer) {
-          controller.reverse();
+          certificateController.reverse();
         },
         child: Container(
           width: double.maxFinite,
@@ -72,13 +73,11 @@ class _CertificationItemState extends State<CertificationItem>
           child: Stack(
             children: [
               Opacity(
-                opacity: 1 - (0.5 * controller.value),
+                opacity: 1 - (0.5 * certificateController.value),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(16),
-                  child: Image(
-                    image: NetworkImage(
-                      widget.certificateModel.link,
-                    ),
+                  child: CachedNetworkImage(
+                    imageUrl: widget.certificateModel.link,
                     fit: BoxFit.cover,
                     width: double.maxFinite,
                     height: double.maxFinite,
@@ -88,7 +87,7 @@ class _CertificationItemState extends State<CertificationItem>
               Align(
                 alignment: Alignment.topRight,
                 child: Opacity(
-                  opacity: controller.value,
+                  opacity: certificateController.value,
                   child: IconButton(
                     onPressed: () {
                       showCertificateDialog(context);
@@ -107,11 +106,11 @@ class _CertificationItemState extends State<CertificationItem>
                 child: Align(
                   alignment: Alignment.center,
                   child: Opacity(
-                    opacity: controller.value,
+                    opacity: certificateController.value,
                     child: Text(
                       widget.certificateModel.name,
                       textAlign: TextAlign.center,
-                      style: AppTextStyles.ktsNormal.copyWith(
+                      style: AppTextStyles.ktsNormal(context).copyWith(
                         color: AppColors.kcPrimary,
                       ),
                     ),
