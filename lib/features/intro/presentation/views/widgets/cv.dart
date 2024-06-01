@@ -19,7 +19,7 @@ class CV extends StatelessWidget {
         await launchUrl(url);
       },
       child: Image.asset(
-        Assets.imagesCv,
+        Assets.imagesDash,
         height: 300,
       ),
     );
