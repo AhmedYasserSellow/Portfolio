@@ -20,13 +20,20 @@ class MobileView extends StatelessWidget {
       drawer: const SafeArea(
         child: CustomDrawer(),
       ),
-      appBar: AppBar(
-        leading: const DrawerOpener(),
-        title: const NavBar(axis: Axis.horizontal),
-        centerTitle: true,
-        elevation: 0,
-        scrolledUnderElevation: 0,
-        backgroundColor: AppColors.kcbgColor,
+      appBar: PreferredSize(
+        preferredSize:
+            Size(double.infinity, AppBar().preferredSize.height + 16),
+        child: Padding(
+          padding: const EdgeInsets.only(top: 16),
+          child: AppBar(
+            leading: const DrawerOpener(),
+            title: const NavBar(axis: Axis.horizontal),
+            centerTitle: true,
+            elevation: 0,
+            scrolledUnderElevation: 0,
+            backgroundColor: AppColors.kcbgColor,
+          ),
+        ),
       ),
       body: const SafeArea(
         child: Padding(
