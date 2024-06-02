@@ -10,22 +10,20 @@ class ContactView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     if (width < 800) {
       // Mobile and Tablet View
-      return Center(
-        child: ScrollConfiguration(
-          behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const ContactViewHeader(),
-                const SizedBox(
-                  height: 16,
-                ),
-                width <= 512
-                    ? const EmailFormWithButtonOutside()
-                    : const EmailFormWithButtonInside(),
-              ],
-            ),
+      return ScrollConfiguration(
+        behavior: ScrollConfiguration.of(context).copyWith(scrollbars: false),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              const ContactViewHeader(),
+              const SizedBox(
+                height: 16,
+              ),
+              width <= 512
+                  ? const EmailFormWithButtonOutside()
+                  : const EmailFormWithButtonInside(),
+            ],
           ),
         ),
       );

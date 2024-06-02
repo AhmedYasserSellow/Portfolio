@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/core/extensions/color.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 
-class ContactInfoListTile extends StatelessWidget {
+class ContactInfoListTile extends StatefulWidget {
   const ContactInfoListTile({
     super.key,
     required this.info,
@@ -12,10 +13,17 @@ class ContactInfoListTile extends StatelessWidget {
   final void Function() onTap;
 
   @override
+  State<ContactInfoListTile> createState() => _ContactInfoListTileState();
+}
+
+Color? textColor;
+
+class _ContactInfoListTileState extends State<ContactInfoListTile> {
+  @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: Text(
-        title,
+        widget.title,
         style: AppTextStyles.ktsHeader(context),
       ),
       trailing: InkWell(
@@ -23,11 +31,25 @@ class ContactInfoListTile extends StatelessWidget {
         focusColor: Colors.transparent,
         splashColor: Colors.transparent,
         highlightColor: Colors.transparent,
-        onTap: onTap,
-        child: Text(
-          info,
-          style: AppTextStyles.ktsNormal(context).copyWith(
-            decoration: TextDecoration.underline,
+        onTap: widget.onTap,
+        child: MouseRegion(
+          onHover: (event) {
+            setState(() {
+              textColor = '00e0d0'.toColor();
+            });
+          },
+          onExit: (event) {
+            setState(() {
+              textColor = null;
+            });
+          },
+          child: Text(
+            widget.info,
+            style: AppTextStyles.ktsNormal(context).copyWith(
+              decoration: TextDecoration.underline,
+              color: textColor,
+              decorationColor: textColor,
+            ),
           ),
         ),
       ),
