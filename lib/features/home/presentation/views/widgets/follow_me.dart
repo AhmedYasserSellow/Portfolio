@@ -61,6 +61,7 @@ class FollowMe extends StatelessWidget {
     } else {
       return Row(
         mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           const FollowMeRow(),
           Row(

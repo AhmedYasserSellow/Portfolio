@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/utils/app_colors.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class ConnectButton extends StatefulWidget {
-  const ConnectButton({
+class DownloadButton extends StatefulWidget {
+  const DownloadButton({
     super.key,
     required this.icon,
     required this.title,
@@ -13,10 +15,10 @@ class ConnectButton extends StatefulWidget {
   final String title, linkUrl;
 
   @override
-  State<ConnectButton> createState() => _ConnectButtonState();
+  State<DownloadButton> createState() => _DownloadButtonState();
 }
 
-class _ConnectButtonState extends State<ConnectButton>
+class _DownloadButtonState extends State<DownloadButton>
     with TickerProviderStateMixin {
   late Animation<Offset> animation;
   late AnimationController controller;
@@ -49,10 +51,14 @@ class _ConnectButtonState extends State<ConnectButton>
       },
       child: MouseRegion(
         onHover: (PointerEvent event) {
-          controller.forward();
+          if (context.read<HomeCubit>().onHoverAnimations) {
+            controller.forward();
+          }
         },
         onExit: (PointerEvent event) {
-          controller.reverse();
+          if (context.read<HomeCubit>().onHoverAnimations) {
+            controller.reverse();
+          }
         },
         child: ClipRRect(
           clipBehavior: Clip.hardEdge,

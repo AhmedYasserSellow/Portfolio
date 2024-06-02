@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/models/personal_data_model.dart';
@@ -11,7 +12,7 @@ part 'home_state.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
-
+  late bool onHoverAnimations;
   late PageController pageController;
   late PersonalDataModel personalData;
   late List<ProjectModel> projectModelsList;
@@ -29,6 +30,15 @@ class HomeCubit extends Cubit<HomeState> {
     );
     pageIndex = index;
     emit(ChangePageIndex());
+  }
+
+  void initPlatform() {
+    if (defaultTargetPlatform == TargetPlatform.android ||
+        defaultTargetPlatform == TargetPlatform.iOS) {
+      onHoverAnimations = false;
+    } else {
+      onHoverAnimations = true;
+    }
   }
 
   void initPageView() {

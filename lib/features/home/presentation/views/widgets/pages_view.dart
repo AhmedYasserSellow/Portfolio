@@ -14,17 +14,24 @@ class PagesView extends StatelessWidget {
   final Axis scrollDirection;
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: PageView(
-        physics: const NeverScrollableScrollPhysics(),
-        scrollDirection: scrollDirection,
-        controller: context.read<HomeCubit>().pageController,
-        children: const [
-          IntroView(),
-          ProjectsView(),
-          CertificationView(),
-          ContactView(),
-        ],
+    return Padding(
+      padding: scrollDirection == Axis.horizontal
+          ? EdgeInsets.zero
+          : const EdgeInsets.symmetric(
+              horizontal: 8,
+            ),
+      child: Center(
+        child: PageView(
+          physics: const NeverScrollableScrollPhysics(),
+          scrollDirection: scrollDirection,
+          controller: context.read<HomeCubit>().pageController,
+          children: const [
+            IntroView(),
+            ProjectsView(),
+            CertificationView(),
+            ContactView(),
+          ],
+        ),
       ),
     );
   }

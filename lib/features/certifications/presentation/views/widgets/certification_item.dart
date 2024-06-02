@@ -1,10 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_icon_class/font_awesome_icon_class.dart';
 import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
 import 'package:portfolio/features/certifications/data/models/certificate_model.dart';
 import 'package:portfolio/features/certifications/presentation/views/widgets/certification_dialog.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class CertificationItem extends StatefulWidget {
   const CertificationItem({
@@ -59,10 +61,14 @@ class _CertificationItemState extends State<CertificationItem>
       },
       child: MouseRegion(
         onHover: (pointer) {
-          certificateController.forward();
+          if (context.read<HomeCubit>().onHoverAnimations) {
+            certificateController.forward();
+          }
         },
         onExit: (pointer) {
-          certificateController.reverse();
+          if (context.read<HomeCubit>().onHoverAnimations) {
+            certificateController.reverse();
+          }
         },
         child: Container(
           width: double.maxFinite,

@@ -18,26 +18,29 @@ class DesktopView extends StatelessWidget {
     context.read<HomeCubit>().initPageView();
     return Scaffold(
       drawer: const CustomDrawer(),
-      body: SafeArea(
-        child: Row(
-          children: [
-            const DrawerOpener(),
-            const FollowMe(
-              axis: Axis.vertical,
-            ),
-            const Expanded(
-              child: PagesView(scrollDirection: Axis.vertical),
-            ),
-            const NavBar(
-              axis: Axis.vertical,
-            ),
-          ]
-              .seperator(
-                const SizedBox(
-                  width: 8,
-                ),
-              )
-              .toList(),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: SafeArea(
+          child: Row(
+            children: [
+              const DrawerOpener(),
+              const FollowMe(
+                axis: Axis.vertical,
+              ),
+              const Expanded(
+                child: PagesView(scrollDirection: Axis.vertical),
+              ),
+              const NavBar(
+                axis: Axis.vertical,
+              ),
+            ]
+                .seperator(
+                  const SizedBox(
+                    width: 8,
+                  ),
+                )
+                .toList(),
+          ),
         ),
       ),
     );

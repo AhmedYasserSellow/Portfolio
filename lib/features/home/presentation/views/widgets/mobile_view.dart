@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/features/drawer/presentation/views/drawer.dart';
 import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 import 'package:portfolio/features/home/presentation/views/widgets/drawer_opener.dart';
@@ -15,40 +16,41 @@ class MobileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<HomeCubit>().initPageView();
-    return const Scaffold(
-      drawer: SafeArea(
+    return Scaffold(
+      drawer: const SafeArea(
         child: CustomDrawer(),
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Row(
-              children: [
-                DrawerOpener(),
-                Expanded(
-                  child: SizedBox(),
-                ),
-                NavBar(axis: Axis.horizontal),
-                Expanded(
-                  child: SizedBox(),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Expanded(
-              child: PagesView(
-                scrollDirection: Axis.horizontal,
+      appBar: AppBar(
+        leading: const DrawerOpener(),
+        title: const NavBar(axis: Axis.horizontal),
+        centerTitle: true,
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        backgroundColor: AppColors.kcbgColor,
+      ),
+      body: const SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 16,
+          ),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 8,
               ),
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            FollowMe(axis: Axis.horizontal),
-          ],
+              Expanded(
+                child: PagesView(
+                  scrollDirection: Axis.horizontal,
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+            ],
+          ),
         ),
       ),
+      bottomNavigationBar: const FollowMe(axis: Axis.horizontal),
     );
   }
 }

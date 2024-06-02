@@ -12,24 +12,16 @@ class HomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<HomeCubit, HomeState>(
       builder: (context, state) {
-        return Scaffold(
-          body: Padding(
-            padding: const EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 16,
-            ),
-            child: AdaptiveLayout(
-              mobile: (context) {
-                return const MobileView();
-              },
-              tablet: (context) {
-                return const MobileView();
-              },
-              desktop: (context) {
-                return const DesktopView();
-              },
-            ),
-          ),
+        return AdaptiveLayout(
+          mobile: (context) {
+            return const MobileView();
+          },
+          tablet: (context) {
+            return const MobileView();
+          },
+          desktop: (context) {
+            return const DesktopView();
+          },
         );
       },
     );

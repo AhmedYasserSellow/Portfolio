@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/core/utils/app_images.dart';
 import 'package:portfolio/core/utils/app_text_styles.dart';
+import 'package:portfolio/features/home/presentation/view_models/home_cubit/home_cubit.dart';
 
 class ProjectButton extends StatefulWidget {
   const ProjectButton({
@@ -42,10 +44,14 @@ class _ProjectButtonState extends State<ProjectButton>
       onTap: widget.onTap,
       child: MouseRegion(
         onHover: (PointerEvent event) {
-          controller.forward();
+          if (context.read<HomeCubit>().onHoverAnimations) {
+            controller.forward();
+          }
         },
         onExit: (PointerEvent event) {
-          controller.reverse();
+          if (context.read<HomeCubit>().onHoverAnimations) {
+            controller.reverse();
+          }
         },
         child: ClipRect(
           clipBehavior: Clip.hardEdge,

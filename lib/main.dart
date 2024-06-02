@@ -15,7 +15,7 @@ void main() async {
   );
   runApp(
     DevicePreview(
-      enabled: kDebugMode,
+      enabled: kDebugMode && kIsWeb,
       builder: (context) => const MyApp(),
     ),
   );
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomeCubit(),
+      create: (context) => HomeCubit()..initPlatform(),
       child: MaterialApp(
         locale: DevicePreview.locale(context),
         builder: DevicePreview.appBuilder,
