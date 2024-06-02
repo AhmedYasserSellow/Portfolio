@@ -10,28 +10,31 @@ class IntroView extends StatelessWidget {
   Widget build(BuildContext context) {
     double width = MediaQuery.sizeOf(context).width;
     return Center(
-      child: SingleChildScrollView(
-        child: width < BreakPoints.tablet
-            ? const Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  CodeBlock(),
-                  SizedBox(
-                    height: 16,
-                  ),
-                  PortfolioDetials(),
-                ],
-              )
-            : const Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  PortfolioDetials(),
-                  SizedBox(
-                    width: 16,
-                  ),
-                  CodeBlock(),
-                ],
-              ),
+      child: ScrollConfiguration(
+        behavior: const ScrollBehavior().copyWith(overscroll: false),
+        child: SingleChildScrollView(
+          child: width < BreakPoints.tablet
+              ? const Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    CodeBlock(),
+                    SizedBox(
+                      height: 16,
+                    ),
+                    PortfolioDetials(),
+                  ],
+                )
+              : const Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    PortfolioDetials(),
+                    SizedBox(
+                      width: 16,
+                    ),
+                    CodeBlock(),
+                  ],
+                ),
+        ),
       ),
     );
   }
