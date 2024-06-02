@@ -24,7 +24,7 @@ class HomeCubit extends Cubit<HomeState> {
     pageController.animateToPage(
       index,
       duration: const Duration(
-        milliseconds: 500,
+        milliseconds: 250,
       ),
       curve: Curves.easeIn,
     );

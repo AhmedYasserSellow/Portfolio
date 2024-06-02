@@ -3,7 +3,7 @@ import 'package:portfolio/core/utils/app_colors.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/contact_info_list.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/profile_box.dart';
 import 'package:portfolio/features/drawer/presentation/views/widgets/skills_list.dart';
-import 'package:portfolio/features/drawer/presentation/views/widgets/social_media.dart';
+// import 'package:portfolio/features/drawer/presentation/views/widgets/social_media.dart';
 
 class CustomDrawer extends StatelessWidget {
   const CustomDrawer({super.key});
@@ -22,8 +22,8 @@ class CustomDrawer extends StatelessWidget {
               ContactInfoList(),
               SizedBox(height: 20),
               SkillsList(),
-              SocialMedia(),
-              SizedBox(height: 16),
+              // SocialMedia(),
+              // SizedBox(height: 16),
             ],
           ),
         ),
