@@ -37,7 +37,7 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.kcbgColor,
         ),
         debugShowCheckedModeBanner: false,
-        title: 'Portfolio',
+        title: 'Ahmed Yasser Portfolio',
         home: const SplashView(),
       ),
     );
