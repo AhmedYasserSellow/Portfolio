@@ -11,7 +11,7 @@ class IntroView extends StatelessWidget {
     double width = MediaQuery.sizeOf(context).width;
     return Center(
       child: ScrollConfiguration(
-        behavior: const ScrollBehavior().copyWith(overscroll: false),
+        behavior: const ScrollBehavior().copyWith(scrollbars: false),
         child: SingleChildScrollView(
           child: width < BreakPoints.tablet
               ? const Column(
